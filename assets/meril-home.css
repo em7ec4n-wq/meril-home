@@ -3265,7 +3265,8 @@ body {
 .filter-drawer {
   position: fixed;
   inset: 0;
-  z-index: 10000;
+  z-index: 999999;
+  isolation: isolate;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.28s ease, visibility 0.28s ease;
@@ -3279,23 +3280,26 @@ body {
 .filter-drawer-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(25, 14, 8, 0.55);
+  z-index: 1;
+  background: rgba(25, 14, 8, 0.62);
   backdrop-filter: blur(4px);
 }
 
 .filter-drawer-sheet {
   position: absolute;
+  z-index: 2;
   left: 0;
   right: 0;
   bottom: 0;
   max-height: 82vh;
-  background: var(--color-cream-bg);
+  background-color: #FAF1E8;
   border-radius: 24px 24px 0 0;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   transform: translateY(100%);
   transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  box-shadow: 0 -10px 32px rgba(42, 24, 14, 0.2);
+  box-shadow: 0 -10px 32px rgba(42, 24, 14, 0.24);
 }
 
 .filter-drawer.active .filter-drawer-sheet {

@@ -1,0 +1,1746 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#412B1D">
+    <title>Güneş ve Dağlar Duvar Örtüsü — Meril Home (02-Mobil-Urun-Detay)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      /* Meril Home - Kesin Tasarım CSS */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-espresso: #3A2315;
+  --color-espresso-hover: #29170C;
+  --color-beige-button: #E5C6A3;
+  --color-beige-hover: #D8B790;
+  --color-cream-bg: #FAF1E8;
+  --color-card-bg: #FAF2EA;
+  --color-text-dark: #2A180E;
+  --color-text-muted: #7A685D;
+  --color-border: #E8DACF;
+  --color-discount: #F8C892;
+  --color-star: #E5A93C;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-cream-bg);
+  color: var(--color-text-dark);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+
+.site-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  position: relative;
+  background-color: var(--color-cream-bg);
+  min-height: 100vh;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  background-color: #412B1D;
+  color: #FAF1E8;
+  padding: 9px 12px;
+  font-size: 11.5px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.announcement-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.announcement-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.announcement-item svg {
+  width: 15px;
+  height: 15px;
+  opacity: 0.9;
+}
+
+.announcement-divider {
+  opacity: 0.4;
+  font-size: 11px;
+}
+
+/* Site Header */
+.site-header {
+  width: 100%;
+  z-index: 40;
+  transition: background-color 0.3s ease;
+}
+
+.site-header--index {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 65%, rgba(0,0,0,0) 100%);
+  color: #FFFFFF;
+}
+
+.site-header--product,
+.site-header--cart,
+.site-header--page,
+.site-header--404 {
+  background-color: var(--color-cream-bg);
+  color: var(--color-espresso);
+  border-bottom: 1px solid rgba(232, 218, 207, 0.5);
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+}
+
+.header-icon-btn {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  position: relative;
+}
+
+.header-logo-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-logo {
+  height: 38px;
+  width: auto;
+  object-fit: contain;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cart-toggle {
+  position: relative;
+}
+
+.cart-count-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--color-discount);
+  color: var(--color-espresso);
+  font-size: 10px;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  line-height: 16px;
+  text-align: center;
+  border-radius: 50%;
+  padding: 0 2px;
+}
+
+/* Hero Section */
+.hero-section {
+  position: relative;
+  min-height: 570px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 100px 22px 52px;
+  overflow: hidden;
+  color: #FFFFFF;
+}
+
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center top;
+  z-index: 1;
+}
+
+.hero-background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(15, 8, 4, 0.25) 0%, rgba(15, 8, 4, 0.1) 40%, rgba(15, 8, 4, 0.55) 100%);
+}
+
+.hero-tapestry-layer {
+  position: absolute;
+  top: 4.8%;
+  right: 1.5%;
+  width: 52%;
+  height: 36%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  margin-bottom: 24px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(30, 18, 10, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F6EEE6;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  padding: 5px 13px;
+  border-radius: 9999px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.hero-title {
+  font-family: var(--font-serif);
+  font-size: 38px;
+  line-height: 1.12;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-subtitle {
+  font-size: 13.5px;
+  line-height: 1.42;
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 20px;
+  font-weight: 400;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--color-beige-button);
+  color: var(--color-espresso);
+  font-size: 13.5px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.hero-btn:hover {
+  background-color: var(--color-beige-hover);
+  transform: translateY(-1px);
+}
+
+.hero-bottom-controls {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-indicators {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 auto;
+}
+
+.hero-pill {
+  width: 12px;
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.3s ease;
+}
+
+.hero-pill.active {
+  width: 22px;
+  background: #FFFFFF;
+  border-color: #FFFFFF;
+}
+
+.hero-nav-arrows {
+  display: flex;
+  gap: 8px;
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+}
+
+.hero-arrow-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(20, 12, 6, 0.35);
+  backdrop-filter: blur(4px);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.hero-arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Trust Badges Panel (Curved Sheet) */
+.trust-badges-panel {
+  position: relative;
+  z-index: 10;
+  margin-top: -30px;
+  background-color: var(--color-cream-bg);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  padding: 22px 14px 18px;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.trust-badges-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trust-badge-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 0 4px;
+}
+
+.trust-badge-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: var(--color-border);
+}
+
+.trust-badge-icon {
+  color: var(--color-espresso);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trust-badge-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  white-space: nowrap;
+}
+
+/* Collections Section */
+.collections-section {
+  padding: 24px 16px 20px;
+}
+
+.collections-header {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.collections-badge-subtitle {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.collections-main-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.collections-scroll-container {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -16px;
+  padding: 0 16px;
+}
+
+.collections-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.collections-grid {
+  display: flex;
+  gap: 8px;
+  width: max-content;
+}
+
+.collection-card {
+  width: 82px;
+  height: 78px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease;
+  display: block;
+}
+
+.collection-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Promo Banner Section */
+.promo-section {
+  padding: 10px 16px 40px;
+}
+
+.promo-card-wrapper {
+  border-radius: 18px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  min-height: 185px;
+  display: flex;
+  align-items: center;
+  padding: 24px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.promo-card-content {
+  max-width: 55%;
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+}
+
+.promo-title {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  line-height: 1.15;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.promo-title em {
+  font-style: italic;
+}
+
+.promo-desc {
+  font-size: 11px;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 14px;
+}
+
+.promo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-beige-button);
+  color: var(--color-espresso);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.promo-btn:hover {
+  background-color: var(--color-beige-hover);
+}
+
+/* Product Detail Section */
+.product-detail-section {
+  padding: 12px 16px 110px;
+}
+
+.product-gallery-container {
+  margin-bottom: 18px;
+}
+
+.product-main-image-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  background-color: #EFE4DA;
+}
+
+.product-main-img {
+  width: 100%;
+  aspect-ratio: 1.25;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+}
+
+.wishlist-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #FFFFFF;
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.2s ease;
+}
+
+.wishlist-btn.active svg {
+  fill: #D60000;
+  stroke: #D60000;
+}
+
+.gallery-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(4px);
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.gallery-nav-btn.prev { left: 10px; }
+.gallery-nav-btn.next { right: 10px; }
+
+.gallery-pills {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 5px;
+}
+
+.gallery-pill {
+  width: 10px;
+  height: 3.5px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.gallery-pill.active {
+  width: 18px;
+  background: #FFFFFF;
+}
+
+.product-thumbnails-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.thumbnail-item {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.thumbnail-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.thumbnail-item.active {
+  border-color: var(--color-espresso);
+  box-shadow: 0 0 0 1px #FAF1E8 inset;
+}
+
+/* Product Info */
+.product-type-badge {
+  display: inline-block;
+  background-color: #F3E2D4;
+  color: #7D4F32;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+}
+
+.product-title {
+  font-family: var(--font-serif);
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.product-rating-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.rating-count {
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+
+.product-price-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.price-current {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.price-old {
+  font-size: 14px;
+  color: #9E8D82;
+  text-decoration: line-through;
+}
+
+.price-discount-badge {
+  background-color: var(--color-discount);
+  color: var(--color-espresso);
+  font-size: 11.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+/* Feature 3-Col Box */
+.product-features-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px 8px;
+  margin-bottom: 20px;
+}
+
+.feature-col {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 4px;
+}
+
+.feature-icon {
+  color: var(--color-espresso);
+  flex-shrink: 0;
+}
+
+.feature-text strong {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+}
+
+.feature-text span {
+  display: block;
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
+.feature-divider {
+  width: 1px;
+  height: 28px;
+  background-color: var(--color-border);
+}
+
+/* Variants Selection */
+.product-variants-wrapper {
+  margin-bottom: 18px;
+}
+
+.variants-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.variants-options {
+  display: flex;
+  gap: 8px;
+}
+
+.variant-chip {
+  flex: 1;
+  padding: 10px 6px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid var(--color-border);
+  background-color: #FAF4EE;
+  color: var(--color-text-dark);
+  transition: all 0.2s ease;
+}
+
+.variant-chip.active {
+  background-color: var(--color-espresso);
+  border-color: var(--color-espresso);
+  color: #FFFFFF;
+}
+
+/* ATC Row */
+.product-atc-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+
+.quantity-selector {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 105px;
+  height: 48px;
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 0 8px;
+}
+
+.qty-btn {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.qty-val {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.btn-add-to-cart {
+  flex: 1;
+  height: 48px;
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(58, 35, 21, 0.25);
+  transition: background-color 0.2s ease;
+}
+
+.btn-add-to-cart:hover {
+  background-color: var(--color-espresso-hover);
+}
+
+/* Accordions */
+.product-accordions {
+  border-top: 1px solid var(--color-border);
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.accordion-header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  color: var(--color-text-dark);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.accordion-header-left svg {
+  color: var(--color-espresso);
+}
+
+.accordion-header svg:last-child {
+  transition: transform 0.25s ease;
+}
+
+.accordion-item.active .accordion-header svg:last-child {
+  transform: rotate(180deg);
+}
+
+.accordion-body {
+  padding: 0 0 14px 28px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* Sticky Bottom Purchase Bar */
+.sticky-purchase-bar {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 480px;
+  background-color: var(--color-cream-bg);
+  border-top: 1px solid var(--color-border);
+  padding: 10px 14px calc(10px + var(--safe-bottom));
+  z-index: 50;
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.sticky-bar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.sticky-product-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sticky-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--color-border);
+}
+
+.sticky-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+}
+
+.sticky-subtitle {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  line-height: 1.2;
+}
+
+.sticky-price-col {
+  text-align: right;
+}
+
+.sticky-current-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.sticky-old-price {
+  font-size: 10.5px;
+  color: #9E8D82;
+  text-decoration: line-through;
+}
+
+.btn-sticky-atc {
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  padding: 10px 16px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(58, 35, 21, 0.2);
+}
+
+/* Drawers */
+.mobile-drawer, .cart-drawer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-drawer.active, .cart-drawer.active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobile-drawer-overlay, .cart-drawer-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.mobile-drawer-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  max-width: 320px;
+  background-color: var(--color-cream-bg);
+  padding: 20px;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.cart-drawer-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 85%;
+  max-width: 360px;
+  background-color: var(--color-cream-bg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+
+.mobile-drawer.active .mobile-drawer-content,
+.cart-drawer.active .cart-drawer-content {
+  transform: translateX(0);
+}
+
+.mobile-drawer-header, .cart-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: 16px;
+}
+
+.mobile-drawer-title, .cart-drawer-title {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--color-text-dark);
+}
+
+.mobile-drawer-close, .cart-drawer-close {
+  font-size: 24px;
+  color: var(--color-text-dark);
+  line-height: 1;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.nav-item {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--color-text-dark);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(232, 218, 207, 0.3);
+}
+
+.nav-item.active {
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.cart-drawer-body {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.cart-item-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.cart-item-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.cart-item-variant {
+  font-size: 11.5px;
+  color: var(--color-text-muted);
+  margin: 2px 0;
+}
+
+.cart-item-price {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.cart-item-old-price {
+  font-size: 11px;
+  color: #9E8D82;
+  text-decoration: line-through;
+  margin-left: 4px;
+}
+
+.cart-drawer-footer {
+  padding-top: 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.cart-drawer-subtotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 8px;
+}
+
+.cart-free-shipping-note {
+  font-size: 11.5px;
+  color: #2F7A43;
+  margin-bottom: 12px;
+  font-weight: 500;
+}
+
+.btn-checkout {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #F3E7DC;
+  border-top: 1px solid var(--color-border);
+  padding: 30px 20px 80px;
+  text-align: center;
+}
+
+.footer-logo {
+  margin: 0 auto 10px;
+}
+
+.footer-desc {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 16px;
+}
+
+.footer-bottom {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+      
+.preview-toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  background: #2A180E;
+  color: #FAF1E8;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 99999;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 13px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.preview-nav {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.preview-nav-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #FAF1E8;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+
+.preview-nav-btn.active, .preview-nav-btn:hover {
+  background: #E5C6A3;
+  color: #2A180E;
+}
+
+.preview-zip-btn {
+  background: #2F7A43;
+  color: #FFFFFF;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-body-offset {
+  padding-top: 48px;
+}
+
+/* Reference overlay comparison */
+.overlay-container {
+  position: relative;
+}
+.overlay-ref-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  z-index: 100;
+  opacity: 0.5;
+  display: none;
+}
+
+    </style>
+  </head>
+  <body class="preview-body-offset template-product">
+    <!-- Preview Controls Toolbar -->
+    <div class="preview-toolbar">
+      <div class="preview-nav">
+        <span style="font-weight:700; color:#E5C6A3; margin-right:8px;">Meril Home OS 2.0</span>
+        <a href="/" class="preview-nav-btn">01 Ana Sayfa</a>
+        <a href="/product.html" class="preview-nav-btn active">02 Ürün Detayı</a>
+        <button type="button" class="preview-nav-btn" id="btn-toggle-overlay-prod">PNG Referans Katmanı</button>
+      </div>
+      <a href="/Meril-Home-Shopify.zip" class="preview-zip-btn" download>
+        ⬇ Shopify Teması (.zip)
+      </a>
+    </div>
+
+    <div class="site-wrapper overlay-container">
+      <img src="assets/02-Mobil-Urun-Detay.png" class="overlay-ref-img" id="ref-overlay-prod" alt="02-Mobil-Urun-Detay Referans" style="top:-70px;">
+
+      <!-- Announcement Bar -->
+      <div class="announcement-bar">
+        <div class="announcement-bar-inner">
+          <div class="announcement-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+            <span>Tüm Türkiye'ye Hızlı Kargo</span>
+          </div>
+          <span class="announcement-divider">|</span>
+          <div class="announcement-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+            <span>14 Gün Kolay İade</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Site Header (Cream) -->
+      <header class="site-header site-header--product" id="site-header">
+        <div class="site-header-inner">
+          <button class="header-icon-btn menu-toggle" id="menu-toggle-btn" aria-label="Menüyü Aç">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+
+          <a href="/" class="header-logo-link" aria-label="Meril Home Ana Sayfa">
+            <img src="assets/logo-dark.png" alt="Meril Home" class="header-logo header-logo--dark" width="138" height="42">
+          </a>
+
+          <div class="header-actions">
+            <button class="header-icon-btn search-toggle" aria-label="Arama Yap">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            </button>
+            <button class="header-icon-btn cart-toggle" id="cart-toggle-btn" aria-label="Sepet">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <span class="cart-count-badge" id="header-cart-badge">0</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Product Content -->
+      <main id="MainContent" class="content-for-layout">
+        <section class="product-detail-section" id="ProductSection">
+          <!-- Gallery -->
+          <div class="product-gallery-container">
+            <div class="product-main-image-wrapper">
+              <img id="main-product-img" src="assets/product-main.png" alt="Güneş ve Dağlar Duvar Örtüsü" class="product-main-img" width="375" height="300">
+              
+              <!-- Wishlist Heart Button -->
+              <button class="wishlist-btn" id="wishlist-toggle" aria-label="Favorilere Ekle">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              </button>
+
+              <!-- Carousel Arrows -->
+              <button class="gallery-nav-btn prev" id="gallery-prev" aria-label="Önceki Fotoğraf">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+              </button>
+              <button class="gallery-nav-btn next" id="gallery-next" aria-label="Sonraki Fotoğraf">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </button>
+
+              <!-- Indicators -->
+              <div class="gallery-pills">
+                <span class="gallery-pill active" data-index="0"></span>
+                <span class="gallery-pill" data-index="1"></span>
+                <span class="gallery-pill" data-index="2"></span>
+              </div>
+            </div>
+
+            <!-- Thumbnails Carousel (5 items) -->
+            <div class="product-thumbnails-row">
+              <div class="thumbnail-item active" data-src="assets/product-main.png">
+                <img src="assets/thumb-1.png" alt="Görsel 1" width="64" height="52">
+              </div>
+              <div class="thumbnail-item" data-src="assets/promo-tapestry.png">
+                <img src="assets/thumb-2.png" alt="Görsel 2" width="64" height="52">
+              </div>
+              <div class="thumbnail-item" data-src="assets/thumb-3.png">
+                <img src="assets/thumb-3.png" alt="Görsel 3" width="64" height="52">
+              </div>
+              <div class="thumbnail-item" data-src="assets/thumb-4.png">
+                <img src="assets/thumb-4.png" alt="Görsel 4" width="64" height="52">
+              </div>
+              <div class="thumbnail-item" data-src="assets/thumb-5.png">
+                <img src="assets/thumb-5.png" alt="Görsel 5" width="64" height="52">
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Info -->
+          <div class="product-info-container">
+            <div class="product-type-badge">Duvar Örtüsü</div>
+            <h1 class="product-title">Güneş ve Dağlar Duvar Örtüsü</h1>
+
+            <!-- Rating -->
+            <div class="product-rating-row">
+              <div class="rating-stars">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C" stroke-width="1"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <span class="rating-count">(412 değerlendirme)</span>
+            </div>
+
+            <!-- Price Row -->
+            <div class="product-price-row">
+              <span class="price-current" id="product-price">₺1.499,00</span>
+              <span class="price-old" id="product-compare-price">₺1.999,00</span>
+              <span class="price-discount-badge">%25 İndirim</span>
+            </div>
+
+            <!-- Feature Value Badges (3 cols) -->
+            <div class="product-features-row">
+              <div class="feature-col">
+                <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg></div>
+                <div class="feature-text">
+                  <strong>Doğal Doku</strong>
+                  <span>Yumuşak kumaş</span>
+                </div>
+              </div>
+              <div class="feature-divider"></div>
+              <div class="feature-col">
+                <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg></div>
+                <div class="feature-text">
+                  <strong>Premium Baskı</strong>
+                  <span>Canlı ve kalıcı renkler</span>
+                </div>
+              </div>
+              <div class="feature-divider"></div>
+              <div class="feature-col">
+                <div class="feature-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"></path></svg></div>
+                <div class="feature-text">
+                  <strong>Dekoratif Tasarım</strong>
+                  <span>Her mekâna uyumlu</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Size Selection -->
+            <div class="product-variants-wrapper">
+              <div class="variants-label">Ölçü Seçimi</div>
+              <div class="variants-options">
+                <button type="button" class="variant-chip" data-size="100 × 150 cm" data-price="₺1.199,00" data-compare="₺1.599,00">100 × 150 cm</button>
+                <button type="button" class="variant-chip active" data-size="150 × 200 cm" data-price="₺1.499,00" data-compare="₺1.999,00">150 × 200 cm</button>
+                <button type="button" class="variant-chip" data-size="200 × 250 cm" data-price="₺1.899,00" data-compare="₺2.499,00">200 × 250 cm</button>
+              </div>
+            </div>
+
+            <!-- Quantity & Add to Cart Row -->
+            <div class="product-atc-row">
+              <div class="quantity-selector">
+                <button type="button" class="qty-btn" id="qty-decrease" aria-label="Azalt">-</button>
+                <span class="qty-val" id="qty-value">1</span>
+                <button type="button" class="qty-btn" id="qty-increase" aria-label="Artır">+</button>
+              </div>
+
+              <button type="button" class="btn-add-to-cart" id="btn-add-to-cart">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span>Sepete Ekle</span>
+              </button>
+            </div>
+
+            <!-- Accordion Tabs -->
+            <div class="product-accordions">
+              <!-- Tab 1 -->
+              <div class="accordion-item active">
+                <button class="accordion-header" aria-expanded="true">
+                  <div class="accordion-header-left">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <span>Ürün Açıklaması</span>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-body">
+                  <p>Güneş ve Dağlar Duvar Örtüsü, sıcak toprak tonları, gün batımı güneşi ve bohem doğa manzarası ile odanıza huzur dolu sanatsal bir hava katar. Yatak başı, koltuk arkası veya çalışma alanınız için mükemmel bir odak noktası oluşturur.</p>
+                </div>
+              </div>
+
+              <!-- Tab 2 -->
+              <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                  <div class="accordion-header-left">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+                    <span>Kumaş & Bakım</span>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>%100 mikro dokuma şönil/keten tuşeli nefes alan kumaş. 30°C hassas yıkama programında yıkanabilir. Düşük ısıda tersten ütülenebilir, renk solması yapmaz.</p>
+                </div>
+              </div>
+
+              <!-- Tab 3 -->
+              <div class="accordion-item">
+                <button class="accordion-header" aria-expanded="false">
+                  <div class="accordion-header-left">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    <span>Kargo & İade</span>
+                  </div>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="accordion-body" style="display:none;">
+                  <p>Siparişiniz 24 saat içinde özenle hazırlanarak kargoya teslim edilir. 14 gün içinde koşulsuz, kolay ve ücretsiz iade imkânı.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- Sticky Purchase Bar -->
+      <div class="sticky-purchase-bar" id="sticky-purchase-bar">
+        <div class="sticky-bar-inner">
+          <div class="sticky-product-info">
+            <img src="assets/thumb-1.png" alt="Güneş ve Dağlar Duvar Örtüsü" class="sticky-thumb" width="40" height="40">
+            <div class="sticky-text">
+              <div class="sticky-title">Güneş ve Dağlar</div>
+              <div class="sticky-subtitle">Duvar Örtüsü</div>
+            </div>
+          </div>
+
+          <div class="sticky-price-col">
+            <div class="sticky-current-price" id="sticky-price">₺1.499,00</div>
+            <div class="sticky-old-price" id="sticky-compare">₺1.999,00</div>
+          </div>
+
+          <button type="button" class="btn-sticky-atc" id="btn-sticky-atc" aria-label="Sepete Ekle">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            <span>Sepete Ekle</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
+      <div class="mobile-drawer-overlay" data-action="close-drawer"></div>
+      <div class="mobile-drawer-content">
+        <div class="mobile-drawer-header">
+          <span class="mobile-drawer-title">Menü</span>
+          <button class="mobile-drawer-close" data-action="close-drawer" aria-label="Kapat">&times;</button>
+        </div>
+        <nav class="mobile-nav-links">
+          <a href="/" class="nav-item">Ana Sayfa</a>
+          <a href="/product.html" class="nav-item active">Güneş ve Dağlar Duvar Örtüsü</a>
+          <a href="/" class="nav-item">Bohem Koleksiyonu</a>
+          <a href="/" class="nav-item">Doğal Dokular</a>
+          <a href="/" class="nav-item">Astrolojik</a>
+          <a href="/" class="nav-item">Manzara Örtüleri</a>
+          <a href="/" class="nav-item">Modern Tasarımlar</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mini Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer" aria-hidden="true">
+      <div class="cart-drawer-overlay" data-action="close-cart"></div>
+      <div class="cart-drawer-content">
+        <div class="cart-drawer-header">
+          <span class="cart-drawer-title">Alışveriş Sepeti (<span id="cart-count-badge">1</span>)</span>
+          <button class="cart-drawer-close" data-action="close-cart" aria-label="Kapat">&times;</button>
+        </div>
+        <div class="cart-drawer-body" id="cart-drawer-items">
+          <div class="cart-item">
+            <img src="assets/product-main.png" alt="Güneş ve Dağlar Duvar Örtüsü" class="cart-item-img">
+            <div class="cart-item-info">
+              <div class="cart-item-title">Güneş ve Dağlar Duvar Örtüsü</div>
+              <div class="cart-item-variant" id="cart-item-selected-size">Ölçü: 150 × 200 cm</div>
+              <div class="cart-item-price">₺1.499,00 <span class="cart-item-old-price">₺1.999,00</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="cart-drawer-footer">
+          <div class="cart-drawer-subtotal">
+            <span>Ara Toplam:</span>
+            <span class="cart-total-amount" id="cart-total-amount">₺1.499,00</span>
+          </div>
+          <p class="cart-free-shipping-note">🎉 Tüm siparişlerde hızlı kargo bedava!</p>
+          <a href="#" class="btn-checkout">Siparişi Tamamla</a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Meril Home - JavaScript Logic
+document.addEventListener('DOMContentLoaded', () => {
+  // 1. Mobile Drawer Navigation
+  const menuBtn = document.getElementById('menu-toggle-btn');
+  const drawer = document.getElementById('mobile-drawer');
+  const drawerCloses = document.querySelectorAll('[data-action="close-drawer"]');
+
+  if (menuBtn && drawer) {
+    menuBtn.addEventListener('click', () => drawer.classList.add('active'));
+    drawerCloses.forEach(el => el.addEventListener('click', () => drawer.classList.remove('active')));
+  }
+
+  // 2. Mini Cart Drawer
+  const cartBtn = document.getElementById('cart-toggle-btn');
+  const cartDrawer = document.getElementById('cart-drawer');
+  const cartCloses = document.querySelectorAll('[data-action="close-cart"]');
+  const headerCartBadge = document.getElementById('header-cart-badge');
+  const cartCountBadge = document.getElementById('cart-count-badge');
+
+  let cartCount = 0;
+
+  function openCart() {
+    if (cartDrawer) {
+      cartDrawer.classList.add('active');
+    }
+  }
+
+  function updateCartUI() {
+    if (headerCartBadge) headerCartBadge.textContent = cartCount;
+    if (cartCountBadge) cartCountBadge.textContent = cartCount;
+  }
+
+  if (cartBtn && cartDrawer) {
+    cartBtn.addEventListener('click', openCart);
+    cartCloses.forEach(el => el.addEventListener('click', () => cartDrawer.classList.remove('active')));
+  }
+
+  // 3. Size Variant Selection
+  const variantChips = document.querySelectorAll('.variant-chip');
+  const productPrice = document.getElementById('product-price');
+  const productComparePrice = document.getElementById('product-compare-price');
+  const stickyPrice = document.getElementById('sticky-price');
+  const stickyCompare = document.getElementById('sticky-compare');
+  const cartVariantText = document.getElementById('cart-item-selected-size');
+  const cartTotalAmount = document.getElementById('cart-total-amount');
+
+  variantChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      variantChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      const size = chip.getAttribute('data-size');
+      const price = chip.getAttribute('data-price');
+      const compare = chip.getAttribute('data-compare');
+
+      if (productPrice) productPrice.textContent = price;
+      if (productComparePrice) productComparePrice.textContent = compare;
+      if (stickyPrice) stickyPrice.textContent = price;
+      if (stickyCompare) stickyCompare.textContent = compare;
+      if (cartVariantText) cartVariantText.textContent = 'Ölçü: ' + size;
+      if (cartTotalAmount) cartTotalAmount.textContent = price;
+    });
+  });
+
+  // 4. Quantity Selector
+  const qtyDecrease = document.getElementById('qty-decrease');
+  const qtyIncrease = document.getElementById('qty-increase');
+  const qtyValue = document.getElementById('qty-value');
+  let quantity = 1;
+
+  if (qtyDecrease && qtyIncrease && qtyValue) {
+    qtyDecrease.addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        qtyValue.textContent = quantity;
+      }
+    });
+
+    qtyIncrease.addEventListener('click', () => {
+      quantity++;
+      qtyValue.textContent = quantity;
+    });
+  }
+
+  // 5. Add to Cart Actions (Main & Sticky Sync)
+  const btnAddToCart = document.getElementById('btn-add-to-cart');
+  const btnStickyAtc = document.getElementById('btn-sticky-atc');
+
+  function handleAddToCart() {
+    cartCount += quantity;
+    updateCartUI();
+    openCart();
+  }
+
+  if (btnAddToCart) btnAddToCart.addEventListener('click', handleAddToCart);
+  if (btnStickyAtc) btnStickyAtc.addEventListener('click', handleAddToCart);
+
+  // 6. Gallery Image & Thumbnails Switcher
+  const mainProductImg = document.getElementById('main-product-img');
+  const thumbnails = document.querySelectorAll('.thumbnail-item');
+  const galleryPills = document.querySelectorAll('.gallery-pill');
+  let activeImageIndex = 0;
+
+  function setActiveGalleryImage(index) {
+    activeImageIndex = (index + thumbnails.length) % thumbnails.length;
+    thumbnails.forEach((t, i) => {
+      t.classList.toggle('active', i === activeImageIndex);
+    });
+    galleryPills.forEach((p, i) => {
+      p.classList.toggle('active', i === (activeImageIndex % galleryPills.length));
+    });
+    const selectedThumb = thumbnails[activeImageIndex];
+    if (selectedThumb && mainProductImg) {
+      const src = selectedThumb.getAttribute('data-src');
+      mainProductImg.style.opacity = '0.4';
+      setTimeout(() => {
+        mainProductImg.src = src;
+        mainProductImg.style.opacity = '1';
+      }, 150);
+    }
+  }
+
+  thumbnails.forEach((thumb, idx) => {
+    thumb.addEventListener('click', () => setActiveGalleryImage(idx));
+  });
+
+  const galleryPrev = document.getElementById('gallery-prev');
+  const galleryNext = document.getElementById('gallery-next');
+  if (galleryPrev) galleryPrev.addEventListener('click', () => setActiveGalleryImage(activeImageIndex - 1));
+  if (galleryNext) galleryNext.addEventListener('click', () => setActiveGalleryImage(activeImageIndex + 1));
+
+  // 7. Accordion Toggle
+  const accordionHeaders = document.querySelectorAll('.accordion-header');
+  accordionHeaders.forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const body = item.querySelector('.accordion-body');
+      const isExpanded = header.getAttribute('aria-expanded') === 'true';
+
+      header.setAttribute('aria-expanded', !isExpanded);
+      item.classList.toggle('active', !isExpanded);
+      if (body) {
+        body.style.display = isExpanded ? 'none' : 'block';
+      }
+    });
+  });
+
+  // 8. Wishlist Toggle
+  const wishlistToggle = document.getElementById('wishlist-toggle');
+  if (wishlistToggle) {
+    wishlistToggle.addEventListener('click', () => {
+      wishlistToggle.classList.toggle('active');
+    });
+  }
+
+  // 9. Hero Carousel Loop with Accessible Pause
+  const heroPills = document.querySelectorAll('.hero-pill');
+  const heroPrev = document.getElementById('hero-prev-btn');
+  const heroNext = document.getElementById('hero-next-btn');
+  const heroTapestryLayer = document.getElementById('hero-tapestry-layer');
+  let currentHeroSlide = 0;
+  const totalHeroSlides = 3;
+
+  function setHeroSlide(idx) {
+    currentHeroSlide = (idx + totalHeroSlides) % totalHeroSlides;
+    heroPills.forEach((pill, i) => {
+      pill.classList.toggle('active', i === currentHeroSlide);
+    });
+  }
+
+  if (heroPrev) heroPrev.addEventListener('click', () => setHeroSlide(currentHeroSlide - 1));
+  if (heroNext) heroNext.addEventListener('click', () => setHeroSlide(currentHeroSlide + 1));
+  heroPills.forEach((pill, idx) => {
+    pill.addEventListener('click', () => setHeroSlide(idx));
+  });
+});
+
+
+      // Toggle reference overlay
+      const toggleBtn = document.getElementById('btn-toggle-overlay-prod');
+      const overlayImg = document.getElementById('ref-overlay-prod');
+      if (toggleBtn && overlayImg) {
+        toggleBtn.addEventListener('click', () => {
+          const isHidden = overlayImg.style.display === 'none' || overlayImg.style.display === '';
+          overlayImg.style.display = isHidden ? 'block' : 'none';
+          toggleBtn.classList.toggle('active', isHidden);
+        });
+      }
+    </script>
+  </body>
+</html>

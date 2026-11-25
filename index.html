@@ -4,12 +4,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
     <meta name="theme-color" content="#3A2315">
-    <title>Meril Home — Ana Sayfa (01-Ana-Sayfa)</title>
+    <title>Meril Home — Duvarında Yeni Bir Hikâye</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-      /* Meril Home - Kesin Tasarım CSS */
+/* Meril Home — Kesin Tasarım CSS (Piksel Hassasiyetli OS 2.0) */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -22,7 +22,7 @@
   --color-beige-button: #E5C6A3;
   --color-beige-hover: #D8B790;
   --color-cream-bg: #FAF1E8;
-  --color-card-bg: #FAF2EA;
+  --color-card-bg: #FAF5F0;
   --color-text-dark: #2A180E;
   --color-text-muted: #7A685D;
   --color-border: #E8DACF;
@@ -37,19 +37,37 @@ body {
   font-family: var(--font-sans);
   background-color: var(--color-cream-bg);
   color: var(--color-text-dark);
-  line-height: 1.5;
+  line-height: 1.4;
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;
   overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .site-wrapper {
-  max-width: 480px;
+  width: 100%;
+  max-width: 520px;
   margin: 0 auto;
   position: relative;
   background-color: var(--color-cream-bg);
   min-height: 100vh;
-  box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 0 40px rgba(58, 35, 21, 0.08);
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  body {
+    background-color: var(--color-cream-bg);
+  }
+  .site-wrapper {
+    max-width: 100%;
+    margin: 0;
+    box-shadow: none;
+    border-radius: 0;
+  }
 }
 
 img {
@@ -81,12 +99,66 @@ a {
   border: 0;
 }
 
+/* Floating Preview Controls (Non-intrusive) */
+.floating-preview-toolbar {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  z-index: 999999;
+  display: flex;
+  gap: 6px;
+  background: rgba(42, 24, 14, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 6px 10px;
+  border-radius: 9999px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+  border: 1px solid rgba(229, 198, 163, 0.3);
+}
+
+.floating-nav-btn {
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #FAF1E8;
+  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.floating-nav-btn.active, .floating-nav-btn:hover {
+  background: var(--color-beige-button);
+  color: var(--color-espresso);
+}
+
+.floating-zip-btn {
+  background: #2F7A43;
+  color: #FFFFFF;
+}
+
+/* Reference Overlay Mode */
+.overlay-ref-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.5;
+  display: none;
+  mix-blend-mode: difference;
+}
+
 /* Announcement Bar */
 .announcement-bar {
   background-color: #412B1D;
   color: #FAF1E8;
-  padding: 9px 12px;
-  font-size: 11.5px;
+  padding: 8px 12px;
+  font-size: 10.5px;
   font-weight: 500;
   letter-spacing: 0.02em;
 }
@@ -95,24 +167,24 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
+  gap: 8px;
 }
 
 .announcement-item {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .announcement-item svg {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   opacity: 0.9;
 }
 
 .announcement-divider {
   opacity: 0.4;
-  font-size: 11px;
+  font-size: 10px;
 }
 
 /* Site Header */
@@ -127,24 +199,24 @@ a {
   top: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.2) 65%, rgba(0,0,0,0) 100%);
+  background: transparent;
   color: #FFFFFF;
+  padding-top: 10px;
 }
 
-.site-header--product,
-.site-header--cart,
-.site-header--page,
-.site-header--404 {
+.site-header--product {
   background-color: var(--color-cream-bg);
   color: var(--color-espresso);
-  border-bottom: 1px solid rgba(232, 218, 207, 0.5);
+  padding: 6px 0;
 }
 
 .site-header-inner {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 18px;
+  padding: 10px 16px;
+  min-height: 62px;
 }
 
 .header-icon-btn {
@@ -152,21 +224,29 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   position: relative;
+  z-index: 6;
 }
 
 .header-logo-link {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 5;
 }
 
 .header-logo {
-  height: 38px;
+  height: 48px;
   width: auto;
+  max-width: 175px;
   object-fit: contain;
+  transition: all 0.2s ease;
 }
 
 .header-actions {
@@ -181,28 +261,26 @@ a {
 
 .cart-count-badge {
   position: absolute;
-  top: 4px;
-  right: 4px;
+  top: 2px;
+  right: 2px;
   background-color: var(--color-discount);
   color: var(--color-espresso);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
-  min-width: 16px;
-  height: 16px;
-  line-height: 16px;
+  min-width: 14px;
+  height: 14px;
+  line-height: 14px;
   text-align: center;
   border-radius: 50%;
-  padding: 0 2px;
+  padding: 0 1px;
 }
 
-/* Hero Section */
+/* Hero Section (01-Ana-Sayfa) */
 .hero-section {
   position: relative;
-  min-height: 570px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 100px 22px 52px;
+  width: 100%;
+  min-height: 380px;
+  height: 380px;
   overflow: hidden;
   color: #FFFFFF;
 }
@@ -213,65 +291,45 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background-size: cover;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
   background-position: center top;
   z-index: 1;
 }
 
-.hero-background::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(180deg, rgba(15, 8, 4, 0.25) 0%, rgba(15, 8, 4, 0.1) 40%, rgba(15, 8, 4, 0.55) 100%);
-}
-
-.hero-tapestry-layer {
-  position: absolute;
-  top: 4.8%;
-  right: 1.5%;
-  width: 52%;
-  height: 36%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 2;
-  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .hero-content {
-  position: relative;
+  position: absolute;
+  top: 96px;
+  left: 24px;
+  right: 24px;
   z-index: 3;
-  margin-bottom: 24px;
 }
 
 .hero-badge {
   display: inline-block;
-  background: rgba(30, 18, 10, 0.65);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  color: #F6EEE6;
-  font-size: 10.5px;
+  background: rgba(30, 18, 10, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: #FAF1E8;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 1.4px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
-  padding: 5px 13px;
+  padding: 4px 10px;
   border-radius: 9999px;
-  margin-bottom: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .hero-title {
   font-family: var(--font-serif);
-  font-size: 38px;
-  line-height: 1.12;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-size: 32px;
+  line-height: 1.05;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: #FFFFFF;
-  margin-bottom: 12px;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  margin-bottom: 8px;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.35);
 }
 
 .hero-title span {
@@ -279,10 +337,10 @@ a {
 }
 
 .hero-subtitle {
-  font-size: 13.5px;
-  line-height: 1.42;
+  font-size: 11.5px;
+  line-height: 1.35;
   color: rgba(255, 255, 255, 0.92);
-  margin-bottom: 20px;
+  margin-bottom: 12px;
   font-weight: 400;
   text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
@@ -290,40 +348,42 @@ a {
 .hero-btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   background-color: var(--color-beige-button);
   color: var(--color-espresso);
-  font-size: 13.5px;
+  font-size: 11px;
   font-weight: 600;
-  padding: 12px 22px;
+  padding: 8px 16px;
   border-radius: 9999px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.2s ease;
 }
 
-.hero-btn:hover {
-  background-color: var(--color-beige-hover);
-  transform: translateY(-1px);
+.hero-btn svg {
+  width: 14px;
+  height: 14px;
 }
 
 .hero-bottom-controls {
-  position: relative;
+  position: absolute;
+  bottom: 22px;
+  left: 0;
+  right: 0;
   z-index: 3;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .hero-indicators {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin: 0 auto;
+  gap: 5px;
 }
 
 .hero-pill {
-  width: 12px;
-  height: 4px;
+  width: 10px;
+  height: 3px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.6);
@@ -331,24 +391,24 @@ a {
 }
 
 .hero-pill.active {
-  width: 22px;
+  width: 18px;
   background: #FFFFFF;
   border-color: #FFFFFF;
 }
 
 .hero-nav-arrows {
-  display: flex;
-  gap: 8px;
   position: absolute;
-  right: 0;
+  right: 14px;
   bottom: -4px;
+  display: flex;
+  gap: 6px;
 }
 
 .hero-arrow-btn {
-  width: 36px;
-  height: 36px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.55);
   background: rgba(20, 12, 6, 0.35);
   backdrop-filter: blur(4px);
   color: #FFFFFF;
@@ -358,20 +418,20 @@ a {
   transition: all 0.2s ease;
 }
 
-.hero-arrow-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
+.hero-arrow-btn svg {
+  width: 13px;
+  height: 13px;
 }
 
 /* Trust Badges Panel (Curved Sheet) */
 .trust-badges-panel {
   position: relative;
   z-index: 10;
-  margin-top: -30px;
   background-color: var(--color-cream-bg);
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  padding: 22px 14px 18px;
-  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+  border-top-left-radius: 34px;
+  border-top-right-radius: 34px;
+  padding: 18px 12px 14px;
+  margin-top: -6px;
 }
 
 .trust-badges-inner {
@@ -387,7 +447,7 @@ a {
   align-items: center;
   text-align: center;
   position: relative;
-  padding: 0 4px;
+  padding: 0 2px;
 }
 
 .trust-badge-item:not(:last-child)::after {
@@ -402,14 +462,19 @@ a {
 
 .trust-badge-icon {
   color: var(--color-espresso);
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
+.trust-badge-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
 .trust-badge-label {
-  font-size: 11px;
+  font-size: 9.5px;
   font-weight: 600;
   color: var(--color-text-dark);
   white-space: nowrap;
@@ -417,57 +482,45 @@ a {
 
 /* Collections Section */
 .collections-section {
-  padding: 24px 16px 20px;
+  padding: 16px 13px 14px;
 }
 
 .collections-header {
   text-align: center;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .collections-badge-subtitle {
-  font-size: 11px;
-  letter-spacing: 2px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   font-weight: 600;
   color: var(--color-text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
 .collections-main-title {
   font-family: var(--font-serif);
-  font-size: 22px;
-  font-weight: 600;
+  font-size: 19px;
+  font-weight: 500;
   color: var(--color-text-dark);
-}
-
-.collections-scroll-container {
-  overflow-x: auto;
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
-  margin: 0 -16px;
-  padding: 0 16px;
-}
-
-.collections-scroll-container::-webkit-scrollbar {
-  display: none;
 }
 
 .collections-grid {
   display: flex;
-  gap: 8px;
-  width: max-content;
+  gap: 5px;
+  justify-content: space-between;
 }
 
 .collection-card {
-  width: 82px;
-  height: 78px;
-  border-radius: 12px;
+  width: 68px;
+  height: 64px;
+  border-radius: 10px;
   background-size: cover;
   background-position: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   display: block;
+  transition: transform 0.2s ease;
 }
 
 .collection-card:hover {
@@ -476,19 +529,19 @@ a {
 
 /* Promo Banner Section */
 .promo-section {
-  padding: 10px 16px 40px;
+  padding: 6px 13px 30px;
 }
 
 .promo-card-wrapper {
-  border-radius: 18px;
+  border-radius: 16px;
   overflow: hidden;
-  background-size: cover;
+  background-size: 100% 100%;
   background-position: center;
-  min-height: 185px;
+  height: 152px;
   display: flex;
   align-items: center;
-  padding: 24px 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  padding: 18px 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
   position: relative;
 }
 
@@ -501,10 +554,10 @@ a {
 
 .promo-title {
   font-family: var(--font-serif);
-  font-size: 24px;
-  line-height: 1.15;
+  font-size: 21px;
+  line-height: 1.1;
   font-weight: 500;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .promo-title em {
@@ -512,43 +565,43 @@ a {
 }
 
 .promo-desc {
-  font-size: 11px;
-  line-height: 1.4;
+  font-size: 9.5px;
+  line-height: 1.35;
   color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .promo-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   background-color: var(--color-beige-button);
   color: var(--color-espresso);
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 6px 12px;
   border-radius: 9999px;
-  transition: all 0.2s ease;
 }
 
-.promo-btn:hover {
-  background-color: var(--color-beige-hover);
+.promo-btn svg {
+  width: 12px;
+  height: 12px;
 }
 
-/* Product Detail Section */
+/* Product Detail Section (02-Mobil-Urun-Detay) */
 .product-detail-section {
-  padding: 12px 16px 110px;
+  padding: 10px 14px 90px;
 }
 
 .product-gallery-container {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .product-main-image-wrapper {
   position: relative;
-  border-radius: 20px;
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   background-color: #EFE4DA;
 }
 
@@ -561,18 +614,22 @@ a {
 
 .wishlist-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
-  width: 34px;
-  height: 34px;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   background-color: #FFFFFF;
   color: var(--color-espresso);
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  transition: transform 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+}
+
+.wishlist-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
 .wishlist-btn.active svg {
@@ -584,8 +641,8 @@ a {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: 32px;
-  height: 32px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(4px);
@@ -593,46 +650,51 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-.gallery-nav-btn.prev { left: 10px; }
-.gallery-nav-btn.next { right: 10px; }
+.gallery-nav-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.gallery-nav-btn.prev { left: 8px; }
+.gallery-nav-btn.next { right: 8px; }
 
 .gallery-pills {
   position: absolute;
-  bottom: 12px;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 5px;
+  gap: 4px;
 }
 
 .gallery-pill {
-  width: 10px;
-  height: 3.5px;
+  width: 8px;
+  height: 3px;
   border-radius: 2px;
   background: rgba(255, 255, 255, 0.5);
   border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .gallery-pill.active {
-  width: 18px;
+  width: 14px;
   background: #FFFFFF;
 }
 
 .product-thumbnails-row {
   display: flex;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .thumbnail-item {
   flex: 1;
-  border-radius: 8px;
+  border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  border: 2px solid transparent;
+  border: 1.5px solid transparent;
   transition: all 0.2s ease;
 }
 
@@ -640,7 +702,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 6px;
+  border-radius: 5px;
 }
 
 .thumbnail-item.active {
@@ -653,54 +715,59 @@ a {
   display: inline-block;
   background-color: #F3E2D4;
   color: #7D4F32;
-  font-size: 11px;
+  font-size: 9.5px;
   font-weight: 600;
-  padding: 3px 10px;
+  padding: 3px 9px;
   border-radius: 9999px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .product-title {
   font-family: var(--font-serif);
-  font-size: 23px;
-  font-weight: 600;
+  font-size: 20px;
+  font-weight: 500;
   line-height: 1.25;
   color: var(--color-text-dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .product-rating-row {
   display: flex;
   align-items: center;
-  gap: 6px;
-  margin-bottom: 14px;
+  gap: 5px;
+  margin-bottom: 10px;
 }
 
 .rating-stars {
   display: flex;
-  gap: 2px;
+  gap: 1px;
+}
+
+.rating-stars svg {
+  width: 12px;
+  height: 12px;
 }
 
 .rating-count {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-text-muted);
 }
 
 .product-price-row {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 16px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .price-current {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 700;
   color: var(--color-text-dark);
 }
 
 .price-old {
-  font-size: 14px;
+  font-size: 13px;
   color: #9E8D82;
   text-decoration: line-through;
 }
@@ -708,10 +775,10 @@ a {
 .price-discount-badge {
   background-color: var(--color-discount);
   color: var(--color-espresso);
-  font-size: 11.5px;
+  font-size: 10px;
   font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
+  padding: 2px 7px;
+  border-radius: 5px;
 }
 
 /* Feature 3-Col Box */
@@ -721,27 +788,28 @@ a {
   justify-content: space-between;
   background-color: #FAF4EE;
   border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 12px 8px;
-  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px 6px;
+  margin-bottom: 16px;
 }
 
 .feature-col {
   flex: 1;
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 0 4px;
+  gap: 5px;
+  padding: 0 3px;
 }
 
-.feature-icon {
+.feature-icon svg {
+  width: 16px;
+  height: 16px;
   color: var(--color-espresso);
-  flex-shrink: 0;
 }
 
 .feature-text strong {
   display: block;
-  font-size: 11px;
+  font-size: 9.5px;
   font-weight: 700;
   color: var(--color-text-dark);
   line-height: 1.2;
@@ -749,39 +817,39 @@ a {
 
 .feature-text span {
   display: block;
-  font-size: 9.5px;
+  font-size: 8.5px;
   color: var(--color-text-muted);
   line-height: 1.2;
 }
 
 .feature-divider {
   width: 1px;
-  height: 28px;
+  height: 24px;
   background-color: var(--color-border);
 }
 
 /* Variants Selection */
 .product-variants-wrapper {
-  margin-bottom: 18px;
+  margin-bottom: 14px;
 }
 
 .variants-label {
-  font-size: 13px;
+  font-size: 11.5px;
   font-weight: 600;
   color: var(--color-text-dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .variants-options {
   display: flex;
-  gap: 8px;
+  gap: 6px;
 }
 
 .variant-chip {
   flex: 1;
-  padding: 10px 6px;
+  padding: 8px 4px;
   border-radius: 9999px;
-  font-size: 12px;
+  font-size: 10.5px;
   font-weight: 600;
   text-align: center;
   border: 1px solid var(--color-border);
@@ -799,53 +867,58 @@ a {
 /* ATC Row */
 .product-atc-row {
   display: flex;
-  gap: 10px;
-  margin-bottom: 24px;
+  gap: 8px;
+  margin-bottom: 18px;
 }
 
 .quantity-selector {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 105px;
-  height: 48px;
+  width: 90px;
+  height: 42px;
   background-color: #FAF4EE;
   border: 1px solid var(--color-border);
   border-radius: 9999px;
-  padding: 0 8px;
+  padding: 0 6px;
 }
 
 .qty-btn {
-  width: 30px;
-  height: 30px;
+  width: 26px;
+  height: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 600;
   color: var(--color-text-dark);
 }
 
 .qty-val {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--color-text-dark);
 }
 
 .btn-add-to-cart {
   flex: 1;
-  height: 48px;
+  height: 42px;
   background-color: var(--color-espresso);
   color: #FFFFFF;
   border-radius: 9999px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  font-size: 14px;
+  gap: 6px;
+  font-size: 12.5px;
   font-weight: 600;
-  box-shadow: 0 4px 12px rgba(58, 35, 21, 0.25);
+  box-shadow: 0 3px 10px rgba(58, 35, 21, 0.25);
   transition: background-color 0.2s ease;
+}
+
+.btn-add-to-cart svg {
+  width: 17px;
+  height: 17px;
 }
 
 .btn-add-to-cart:hover {
@@ -866,24 +939,28 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 0;
+  padding: 12px 0;
   color: var(--color-text-dark);
-  font-size: 13.5px;
+  font-size: 12px;
   font-weight: 600;
 }
 
 .accordion-header-left {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .accordion-header-left svg {
   color: var(--color-espresso);
+  width: 15px;
+  height: 15px;
 }
 
 .accordion-header svg:last-child {
   transition: transform 0.25s ease;
+  width: 14px;
+  height: 14px;
 }
 
 .accordion-item.active .accordion-header svg:last-child {
@@ -891,9 +968,9 @@ a {
 }
 
 .accordion-body {
-  padding: 0 0 14px 28px;
-  font-size: 12.5px;
-  line-height: 1.5;
+  padding: 0 0 12px 24px;
+  font-size: 11px;
+  line-height: 1.45;
   color: var(--color-text-muted);
 }
 
@@ -904,44 +981,59 @@ a {
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  max-width: 480px;
-  background-color: var(--color-cream-bg);
-  border-top: 1px solid var(--color-border);
-  padding: 10px 14px calc(10px + var(--safe-bottom));
-  z-index: 50;
-  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  border-top: 1.5px solid rgba(232, 218, 207, 0.9);
+  padding: 12px 16px calc(12px + var(--safe-bottom));
+  z-index: 100;
+  box-shadow: 0 -8px 28px rgba(58, 35, 21, 0.12);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .sticky-purchase-bar {
+    max-width: 100%;
+    left: 0;
+    transform: none;
+    border-radius: 24px 24px 0 0;
+  }
 }
 
 .sticky-bar-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px;
 }
 
 .sticky-product-info {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .sticky-thumb {
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
   object-fit: cover;
-  border: 1px solid var(--color-border);
+  border: 1.5px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .sticky-title {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   color: var(--color-text-dark);
   line-height: 1.2;
 }
 
 .sticky-subtitle {
-  font-size: 10px;
+  font-size: 9px;
   color: var(--color-text-muted);
   line-height: 1.2;
 }
@@ -951,13 +1043,13 @@ a {
 }
 
 .sticky-current-price {
-  font-size: 14px;
+  font-size: 12.5px;
   font-weight: 700;
   color: var(--color-text-dark);
 }
 
 .sticky-old-price {
-  font-size: 10.5px;
+  font-size: 9.5px;
   color: #9E8D82;
   text-decoration: line-through;
 }
@@ -965,14 +1057,25 @@ a {
 .btn-sticky-atc {
   background-color: var(--color-espresso);
   color: #FFFFFF;
-  padding: 10px 16px;
+  padding: 11px 18px;
   border-radius: 9999px;
-  font-size: 12.5px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 6px;
-  box-shadow: 0 2px 8px rgba(58, 35, 21, 0.2);
+  box-shadow: 0 4px 14px rgba(58, 35, 21, 0.25);
+  transition: all 0.2s ease;
+}
+
+.btn-sticky-atc:hover {
+  background-color: var(--color-espresso-hover);
+  transform: translateY(-1px);
+}
+
+.btn-sticky-atc svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* Drawers */
@@ -982,7 +1085,7 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 999;
+  z-index: 9999;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -999,8 +1102,8 @@ a {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
 }
 
 .mobile-drawer-content {
@@ -1009,7 +1112,7 @@ a {
   left: 0;
   bottom: 0;
   width: 80%;
-  max-width: 320px;
+  max-width: 300px;
   background-color: var(--color-cream-bg);
   padding: 20px;
   transform: translateX(-100%);
@@ -1022,7 +1125,7 @@ a {
   right: 0;
   bottom: 0;
   width: 85%;
-  max-width: 360px;
+  max-width: 340px;
   background-color: var(--color-cream-bg);
   padding: 20px;
   display: flex;
@@ -1040,19 +1143,19 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 16px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--color-border);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .mobile-drawer-title, .cart-drawer-title {
   font-weight: 700;
-  font-size: 16px;
+  font-size: 15px;
   color: var(--color-text-dark);
 }
 
 .mobile-drawer-close, .cart-drawer-close {
-  font-size: 24px;
+  font-size: 22px;
   color: var(--color-text-dark);
   line-height: 1;
 }
@@ -1060,14 +1163,14 @@ a {
 .mobile-nav-links {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .nav-item {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
   color: var(--color-text-dark);
-  padding: 8px 0;
+  padding: 6px 0;
   border-bottom: 1px solid rgba(232, 218, 207, 0.3);
 }
 
@@ -1083,73 +1186,73 @@ a {
 
 .cart-item {
   display: flex;
-  gap: 12px;
-  padding: 12px 0;
+  gap: 10px;
+  padding: 10px 0;
   border-bottom: 1px solid var(--color-border);
 }
 
 .cart-item-img {
-  width: 60px;
-  height: 60px;
-  border-radius: 8px;
+  width: 52px;
+  height: 52px;
+  border-radius: 6px;
   object-fit: cover;
 }
 
 .cart-item-title {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--color-text-dark);
 }
 
 .cart-item-variant {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: var(--color-text-muted);
   margin: 2px 0;
 }
 
 .cart-item-price {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
   color: var(--color-espresso);
 }
 
 .cart-item-old-price {
-  font-size: 11px;
+  font-size: 10px;
   color: #9E8D82;
   text-decoration: line-through;
   margin-left: 4px;
 }
 
 .cart-drawer-footer {
-  padding-top: 16px;
+  padding-top: 14px;
   border-top: 1px solid var(--color-border);
 }
 
 .cart-drawer-subtotal {
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: var(--color-text-dark);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .cart-free-shipping-note {
-  font-size: 11.5px;
+  font-size: 10.5px;
   color: #2F7A43;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-weight: 500;
 }
 
 .btn-checkout {
   display: block;
   width: 100%;
-  padding: 13px;
+  padding: 12px;
   background-color: var(--color-espresso);
   color: #FFFFFF;
   text-align: center;
   border-radius: 9999px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
 }
 
@@ -1157,181 +1260,2056 @@ a {
 .site-footer {
   background-color: #F3E7DC;
   border-top: 1px solid var(--color-border);
-  padding: 30px 20px 80px;
+  padding: 24px 16px 70px;
   text-align: center;
 }
 
 .footer-logo {
-  margin: 0 auto 10px;
+  margin: 0 auto 8px;
 }
 
 .footer-desc {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--color-text-muted);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .footer-bottom {
+  font-size: 10px;
+  color: var(--color-text-muted);
+}
+
+/* Category Page Styles */
+.category-page-container {
+  padding-bottom: 30px;
+}
+
+.category-hero-wrapper {
+  padding: 8px 12px 10px;
+}
+
+.category-hero-card {
+  border-radius: 14px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center right;
+  min-height: 145px;
+  display: flex;
+  align-items: center;
+  padding: 18px 16px;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.category-hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(90deg, rgba(25, 14, 8, 0.85) 0%, rgba(25, 14, 8, 0.6) 55%, rgba(25, 14, 8, 0.1) 100%);
+  z-index: 1;
+}
+
+.category-hero-text {
+  position: relative;
+  z-index: 2;
+  color: #FFFFFF;
+  max-width: 65%;
+}
+
+.category-hero-eyebrow {
+  display: block;
+  font-size: 8.5px;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+  color: #E5C6A3;
+  margin-bottom: 2px;
+}
+
+.category-hero-title {
+  font-family: var(--font-serif);
+  font-size: 23px;
+  line-height: 1.15;
+  font-weight: 500;
+  margin-bottom: 4px;
+  color: #FFFFFF;
+}
+
+.category-hero-desc {
+  font-size: 10px;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* Breadcrumbs */
+.category-breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px 4px;
   font-size: 11px;
   color: var(--color-text-muted);
 }
 
-      
-.preview-toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 48px;
-  background: #2A180E;
-  color: #FAF1E8;
+.breadcrumb-home {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb-home:hover {
+  color: var(--color-espresso);
+}
+
+.breadcrumb-sep {
+  opacity: 0.5;
+  font-size: 9px;
+}
+
+.breadcrumb-current {
+  color: var(--color-text-dark);
+  font-weight: 600;
+}
+
+/* Filter & Sort Row */
+.category-controls-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 16px;
-  z-index: 99999;
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 13px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  padding: 8px 14px 10px;
+  gap: 10px;
 }
 
-.preview-nav {
-  display: flex;
-  gap: 8px;
+.btn-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 8px 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.category-divider {
+  width: 1px;
+  height: 24px;
+  background-color: var(--color-border);
+}
+
+.sort-dropdown-wrapper {
+  position: relative;
+  display: inline-flex;
   align-items: center;
 }
 
-.preview-nav-btn {
-  padding: 6px 14px;
-  border-radius: 6px;
+.sort-select {
+  appearance: none;
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 9999px;
+  padding: 8px 28px 8px 14px;
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  cursor: pointer;
+  outline: none;
+}
+
+.sort-arrow {
+  position: absolute;
+  right: 12px;
+  pointer-events: none;
+  color: var(--color-text-dark);
+}
+
+/* Subcategory Pills Row */
+.subcategory-pills-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 14px 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.subcategory-pills-row::-webkit-scrollbar {
+  display: none;
+}
+
+.subcat-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.subcat-pill span {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.subcat-thumb-box, .subcat-icon-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2E4D8;
+  border: 1.5px solid transparent;
+  transition: all 0.2s;
+  overflow: hidden;
+}
+
+.subcat-thumb-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.subcat-pill.active .subcat-thumb-box,
+.subcat-pill.active .subcat-icon-circle {
+  border-color: var(--color-espresso);
+  box-shadow: 0 0 0 2px var(--color-espresso), 0 0 0 3px #FAF1E8;
+}
+
+.subcat-icon-circle svg {
+  color: var(--color-espresso);
+}
+
+/* 2-Column Product Grid */
+.products-grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 4px 12px 20px;
+}
+
+.product-grid-card {
+  background-color: #FAF4EE;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s;
+}
+
+.product-grid-card:hover {
+  transform: translateY(-2px);
+}
+
+.product-card-media {
+  position: relative;
+  aspect-ratio: 1.08;
+  overflow: hidden;
+  background-color: #EBDED4;
+}
+
+.product-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+
+.product-grid-card:hover .product-card-media img {
+  transform: scale(1.03);
+}
+
+.card-wishlist-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-espresso);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.card-wishlist-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.card-wishlist-btn.active svg {
+  fill: #D60000;
+  stroke: #D60000;
+}
+
+.card-badge-badge {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #B8470E;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.12);
+}
+
+.product-card-details {
+  padding: 8px 10px 10px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card-title {
+  font-family: var(--font-serif);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--color-text-dark);
+  margin-bottom: 4px;
+  min-height: 31px;
+}
+
+.product-card-rating {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 6px;
+}
+
+.product-card-rating .rating-stars svg {
+  width: 10px;
+  height: 10px;
+}
+
+.rating-num {
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+}
+
+.product-card-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  margin-bottom: 4px;
+}
+
+.product-card-price-row .price-current {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+}
+
+.product-card-price-row .price-old {
+  font-size: 10px;
+  color: #9E8D82;
+  text-decoration: line-through;
+}
+
+.card-quick-add-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(58, 35, 21, 0.25);
+  transition: transform 0.15s, background-color 0.15s;
+}
+
+.card-quick-add-btn:active {
+  transform: scale(0.92);
+}
+
+.card-quick-add-btn svg {
+  width: 13px;
+  height: 13px;
+}
+
+.product-card-discount-tag {
+  align-self: flex-start;
+  background-color: var(--color-discount);
+  color: var(--color-espresso);
+  font-size: 9px;
+  font-weight: 700;
+  padding: 1.5px 5px;
+  border-radius: 4px;
+}
+
+/* Sections Shared Headers */
+.section-header-wrap {
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.section-eyebrow {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 2px;
+}
+
+.section-main-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text-dark);
+}
+
+/* Related Products Section */
+.related-products-section {
+  padding: 24px 12px 16px;
+  border-top: 1px solid var(--color-border);
+}
+
+.related-products-scroll {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 -12px;
+  padding: 0 12px;
+}
+
+.related-products-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.related-products-grid {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+}
+
+.related-card {
+  width: 140px;
+  background-color: #FAF4EE;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+}
+
+.related-card-img-wrap {
+  display: block;
+  aspect-ratio: 1;
+  background-color: #EBDED4;
+}
+
+.related-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.related-card-body {
+  padding: 8px;
+}
+
+.related-title {
+  font-family: var(--font-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  margin-bottom: 4px;
+  line-height: 1.25;
+  min-height: 28px;
+}
+
+.related-price {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  margin-bottom: 6px;
+}
+
+.related-old-price {
+  font-size: 9.5px;
+  color: #9E8D82;
+  text-decoration: line-through;
+  margin-left: 2px;
+}
+
+.btn-related-add {
+  display: block;
+  width: 100%;
+  padding: 6px 0;
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  font-size: 10.5px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Customer Reviews Section */
+.customer-reviews-section {
+  padding: 24px 14px 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.reviews-summary-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 16px;
+  gap: 12px;
+}
+
+.reviews-big-score {
+  text-align: center;
+  min-width: 90px;
+}
+
+.score-number {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color-text-dark);
+}
+
+.score-stars {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin: 4px 0 2px;
+}
+
+.score-stars svg {
+  width: 12px;
+  height: 12px;
+}
+
+.score-total {
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+}
+
+.reviews-progress-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.progress-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+}
+
+.progress-bar {
+  flex: 1;
+  height: 5px;
+  background-color: #EBDED4;
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: #E5A93C;
+  border-radius: 9999px;
+}
+
+.customer-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.review-card {
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.review-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.review-author-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.review-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--color-espresso);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.review-author-name {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-text-dark);
+  line-height: 1.2;
+}
+
+.verified-badge {
+  font-size: 9px;
+  font-weight: 600;
+  color: #2F7A43;
+  margin-left: 4px;
+}
+
+.review-stars {
+  display: flex;
+  gap: 1.5px;
+  margin-top: 2px;
+}
+
+.review-stars svg {
+  width: 10px;
+  height: 10px;
+}
+
+.review-date {
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+}
+
+.review-text {
+  font-size: 11px;
+  line-height: 1.45;
+  color: #4A3A30;
+  margin-bottom: 6px;
+}
+
+.review-product-tag {
+  display: inline-block;
+  font-size: 9px;
+  color: var(--color-text-muted);
+  background: #EFE4DA;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+/* FAQ Section */
+.faq-section {
+  padding: 24px 14px 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.faq-accordion-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.faq-item {
+  background-color: #FAF4EE;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.faq-question-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
   font-size: 12px;
   font-weight: 600;
+  color: var(--color-text-dark);
+  text-align: left;
+  gap: 10px;
+}
+
+.faq-question-btn svg {
+  flex-shrink: 0;
+  width: 14px;
+  height: 14px;
+  color: var(--color-espresso);
+  transition: transform 0.25s ease;
+}
+
+.faq-item.active .faq-question-btn svg {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  padding: 0 14px 12px;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+/* Collection Card Styling for WebP + SVG Icons */
+.collection-card {
+  width: 68px;
+  height: 64px;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease;
+}
+
+.collection-card:hover {
+  transform: translateY(-2px);
+}
+
+.collection-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 8, 4, 0.42);
+  z-index: 1;
+}
+
+.collection-card-inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #FFFFFF;
+}
+
+.collection-card-icon {
+  width: 22px;
+  height: 22px;
+  stroke: #FFFFFF;
+  fill: none;
+}
+
+.collection-card-name {
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #FFFFFF;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* Remove floating toolbar completely as requested */
+.floating-preview-toolbar, .overlay-ref-img {
+  display: none !important;
+}
+
+
+/* --- MERIL HOME ATÖLYE & ENRICHED HOMEPAGE STYLES --- */
+
+.section-eyebrow {
+  display: block;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-espresso);
+  opacity: 0.8;
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.section-main-title {
+  font-family: var(--font-serif);
+  font-size: 21px;
+  font-weight: 500;
+  color: var(--color-espresso);
+  line-height: 1.25;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.section-lead-text {
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 18px;
+  padding: 0 8px;
+}
+
+/* Custom Atelier Section */
+.custom-atelier-section {
+  margin: 32px 14px 24px;
+  padding: 22px 14px;
+  background: linear-gradient(180deg, #FFFFFF 0%, #F9F3EC 100%);
+  border-radius: 22px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 10px 30px rgba(58, 35, 21, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.custom-atelier-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #E5C6A3, #3A2315, #E5C6A3);
+}
+
+.atelier-configurator-card {
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 14px;
+  border: 1px solid rgba(232, 218, 207, 0.7);
+  box-shadow: 0 6px 20px rgba(58, 35, 21, 0.04);
+  margin-bottom: 18px;
+}
+
+/* Mockup Frame */
+.atelier-mockup-frame {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background: radial-gradient(circle at 50% 30%, #F6EDE3 0%, #E7D7C8 100%);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid rgba(58, 35, 21, 0.08);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.mockup-wall-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 42px;
+  background: #D9C3B0;
+  border-top: 2px solid #C4AB95;
+  opacity: 0.7;
+}
+
+.mockup-hanging-rod {
+  display: none !important;
+}
+
+.mockup-tapestry-wrap {
+  width: 125px;
+  height: 175px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 14px 34px rgba(42, 24, 14, 0.28), 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.4s cubic-bezier(0.34, 1.4, 0.64, 1);
+  overflow: hidden;
+  border-radius: 4px;
+  background: #FAF5F0;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* Real-time Visual Size Scaling on the Wall */
+.mockup-tapestry-wrap.size-70x100 {
+  width: 95px !important;
+  height: 135px !important;
+  transform: translateY(12px) scale(0.92);
+}
+
+.mockup-tapestry-wrap.size-100x140 {
+  width: 125px !important;
+  height: 175px !important;
+  transform: translateY(0) scale(1);
+}
+
+.mockup-tapestry-wrap.size-140x200 {
+  width: 155px !important;
+  height: 215px !important;
+  transform: translateY(-8px) scale(1.12);
+}
+
+.mockup-tapestry-wrap.rug-mode {
+  transform: rotateX(55deg) rotateZ(-12deg) scale(1.1);
+  box-shadow: 0 14px 20px rgba(42, 24, 14, 0.3);
+  margin-top: 30px;
+}
+
+.mockup-tapestry-wrap.rug-mode ~ .mockup-hanging-rod {
+  display: none;
+}
+
+.atelier-preview-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.mockup-badges-wrap {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.mockup-badge {
+  background: rgba(58, 35, 21, 0.85);
+  backdrop-filter: blur(4px);
   color: #FAF1E8;
-  background: rgba(255, 255, 255, 0.12);
-  cursor: pointer;
-  text-decoration: none;
+  font-size: 9.5px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.3px;
+}
+
+.mockup-dim-badge {
+  background: rgba(229, 198, 163, 0.95);
+  color: var(--color-espresso);
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+/* Atelier Step Titles */
+.atelier-step-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin-top: 14px;
+  margin-bottom: 7px;
+}
+
+.atelier-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--color-espresso);
+  color: #FAF1E8;
+  font-size: 10px;
+  margin-right: 6px;
+}
+
+/* Step 1: Type Segment */
+.atelier-type-segment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  background: #F4EAE0;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.atelier-type-btn {
+  padding: 8px 10px;
+  border-radius: 9px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  background: transparent;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.atelier-type-btn.active {
+  background: #FFFFFF;
+  color: var(--color-espresso);
+  box-shadow: 0 2px 8px rgba(58, 35, 21, 0.12);
+}
+
+/* Step 2: Fabrics */
+.atelier-chips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+}
+
+.atelier-fabric-btn {
+  padding: 7px 6px;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  background: #FAF6F1;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  text-align: center;
+  transition: all 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.fabric-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.atelier-fabric-btn.active {
+  border-color: var(--color-espresso);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 1px var(--color-espresso);
+}
+
+/* Step 3: Sizes */
+.atelier-sizes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+}
+
+.atelier-size-chip {
+  padding: 7px 4px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: #FAF6F1;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: var(--color-text-dark);
+  text-align: center;
   transition: all 0.2s;
 }
 
-.preview-nav-btn.active, .preview-nav-btn:hover {
-  background: #E5C6A3;
-  color: #2A180E;
+.atelier-size-chip.active {
+  background: var(--color-espresso);
+  color: #FFFFFF;
+  border-color: var(--color-espresso);
 }
 
-.preview-zip-btn {
-  background: #2F7A43;
-  color: #FFFFFF;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 12px;
-  font-weight: 600;
-  text-decoration: none;
+.atelier-custom-inputs {
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 8px;
+  background: #FAF5F0;
+  border-radius: 10px;
+  border: 1px dashed var(--color-border);
+}
+
+.atelier-custom-inputs.show {
+  display: grid;
+}
+
+.custom-input-box {
   display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.custom-input-box label {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.custom-input-box input {
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--color-border);
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+  color: var(--color-espresso);
+}
+
+/* Step 4: Upload Box */
+.atelier-upload-box {
+  border: 2px dashed #D6C2AF;
+  background: #FAF6F2;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 6px;
 }
 
-.preview-body-offset {
-  padding-top: 48px;
+.atelier-upload-box:hover {
+  background: #F4EAE0;
+  border-color: var(--color-espresso);
 }
 
-/* Reference overlay comparison */
-.overlay-container {
+.upload-icon-circle {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-espresso);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+.upload-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.upload-sub {
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+}
+
+/* Preset test thumbnails */
+.atelier-preset-strip {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.preset-thumb-btn {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1.5px solid transparent;
+  padding: 0;
+  background: none;
+}
+
+.preset-thumb-btn.active {
+  border-color: var(--color-espresso);
+  box-shadow: 0 0 0 1px var(--color-espresso);
+}
+
+.preset-thumb-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Step 5: Price & Actions */
+.atelier-price-banner {
+  background: #FAF5F0;
+  border-radius: 12px;
+  padding: 10px 12px;
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--color-border);
+}
+
+.price-banner-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.price-banner-label {
+  font-size: 9.5px;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.price-banner-amount {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.price-banner-tag {
+  background: #E8F5E9;
+  color: #2E7D32;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+.atelier-actions-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.atelier-whatsapp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 14px;
+  background: #25D366;
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+  transition: all 0.2s;
+}
+
+.atelier-whatsapp-cta:hover {
+  background: #20BD5A;
+}
+
+.atelier-cart-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 11px 14px;
+  background: var(--color-espresso);
+  color: #FFFFFF;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.atelier-cart-cta:hover {
+  background: var(--color-espresso-hover);
+}
+
+/* 3-Step Process Infographic */
+.atelier-process-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.process-step-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 10px 8px;
+  text-align: center;
+}
+
+.process-step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-beige-button);
+  color: var(--color-espresso);
+  font-size: 10px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 6px;
+}
+
+.process-step-title {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-espresso);
+  margin-bottom: 2px;
+}
+
+.process-step-desc {
+  font-size: 8.5px;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+/* Best Sellers Grid */
+.home-bestsellers-section {
+  padding: 24px 14px;
+}
+
+.home-bestsellers-header {
+  margin-bottom: 14px;
+}
+
+.bestsellers-footer-cta {
+  margin-top: 14px;
+  text-align: center;
+}
+
+.bestsellers-all-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: 1.5px solid var(--color-espresso);
+  color: var(--color-espresso);
+  font-size: 11.5px;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.bestsellers-all-link:hover {
+  background: var(--color-espresso);
+  color: #FFFFFF;
+}
+
+/* Atelier Craft Pillars */
+.atelier-craft-section {
+  padding: 20px 14px;
+  background: #FAF5F0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.craft-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.craft-card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 12px 10px;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.craft-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: #F4EAE0;
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.craft-title {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.craft-desc {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  line-height: 1.35;
+}
+
+/* Social Proof (#MerilHomeEvimde) */
+.home-social-section {
+  padding: 24px 14px;
+}
+
+.social-scroll-wrap {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+  scrollbar-width: none;
+}
+
+.social-scroll-wrap::-webkit-scrollbar {
+  display: none;
+}
+
+.social-card {
+  flex: 0 0 160px;
+  background: #FFFFFF;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(58, 35, 21, 0.05);
+}
+
+.social-img-box {
+  width: 100%;
+  height: 150px;
   position: relative;
 }
-.overlay-ref-img {
+
+.social-img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-tag-pill {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background: rgba(42, 24, 14, 0.85);
+  backdrop-filter: blur(4px);
+  color: #FAF1E8;
+  font-size: 8.5px;
+  font-weight: 600;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.social-card-body {
+  padding: 8px;
+}
+
+.social-handle {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.social-comment {
+  font-size: 9px;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+  margin-top: 2px;
+}
+
+/* Home Reviews */
+.home-reviews-section {
+  padding: 20px 14px 26px;
+}
+
+.reviews-score-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  padding: 6px 14px;
+  border-radius: 999px;
+  margin: 0 auto 14px;
+  width: fit-content;
+}
+
+.reviews-score-num {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.home-reviews-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.home-review-card {
+  background: #FFFFFF;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 12px;
+}
+
+.home-review-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.home-review-author {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-espresso);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.verified-icon {
+  color: #2F7A43;
+}
+
+.home-review-body {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Home FAQ */
+.home-faq-section {
+  padding: 22px 14px 26px;
+  background: #FAF5F0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* Newsletter Box */
+.home-newsletter-card {
+  margin: 20px 14px 26px;
+  background: linear-gradient(135deg, #3A2315 0%, #29170C 100%);
+  border-radius: 20px;
+  padding: 22px 16px;
+  color: #FAF1E8;
+  text-align: center;
+}
+
+.newsletter-title {
+  font-family: var(--font-serif);
+  font-size: 19px;
+  font-weight: 500;
+  color: #FAF1E8;
+  margin-bottom: 6px;
+}
+
+.newsletter-desc {
+  font-size: 11px;
+  color: rgba(250, 241, 232, 0.75);
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 6px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(229, 198, 163, 0.4);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-size: 11.5px;
+  font-family: inherit;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-btn {
+  padding: 10px 18px;
+  background: var(--color-beige-button);
+  color: var(--color-espresso);
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.newsletter-btn:hover {
+  background: var(--color-beige-hover);
+}
+
+/* Enriched Footer */
+.enriched-footer {
+  background: #24140A;
+  color: #FAF1E8;
+  padding: 28px 16px env(safe-area-inset-bottom, 20px);
+}
+
+.enriched-footer-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.footer-nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.footer-col-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-beige-button);
+  margin-bottom: 8px;
+  letter-spacing: 0.5px;
+}
+
+.footer-col-links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-link {
+  font-size: 10.5px;
+  color: rgba(250, 241, 232, 0.75);
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: #FFFFFF;
+}
+
+.footer-trust-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 14px;
+  font-size: 10px;
+  color: rgba(250, 241, 232, 0.7);
+}
+
+.footer-bottom-copy {
+  text-align: center;
+  font-size: 9.5px;
+  color: rgba(250, 241, 232, 0.5);
+}
+
+
+
+
+/* 3-Size Grid */
+.atelier-sizes-grid--three {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.atelier-sizes-grid--three .atelier-size-chip {
+  padding: 10px 4px;
+  border-radius: 12px;
+  border: 1.5px solid var(--color-border);
+  background: #FAF6F1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.size-chip-dim {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-espresso);
+}
+
+.size-chip-sub {
+  font-size: 8px;
+  color: var(--color-text-muted);
+}
+
+.atelier-sizes-grid--three .atelier-size-chip.active {
+  background: var(--color-espresso);
+  border-color: var(--color-espresso);
+  box-shadow: 0 4px 12px rgba(58, 35, 21, 0.2);
+}
+
+.atelier-sizes-grid--three .atelier-size-chip.active .size-chip-dim {
+  color: #FFFFFF;
+}
+
+.atelier-sizes-grid--three .atelier-size-chip.active .size-chip-sub {
+  color: var(--color-beige-button);
+}
+
+/* WhatsApp Direct Send Card */
+.atelier-wa-box {
+  background: #F0FDF4;
+  border: 1.5px dashed #86EFAC;
+  border-radius: 14px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 12px 0 14px;
+}
+
+.atelier-wa-icon-box {
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(37, 211, 102, 0.15);
+}
+
+.atelier-wa-text-box {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.atelier-wa-title {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #166534;
+}
+
+.atelier-wa-desc {
+  font-size: 9.5px;
+  line-height: 1.45;
+  color: #15803D;
+}
+
+
+
+/* Hero Slider Multi-Slide Transition */
+.hero-slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-slide {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.65s cubic-bezier(0.25, 1, 0.5, 1), transform 0.65s cubic-bezier(0.25, 1, 0.5, 1);
+  transform: scale(1.04);
+  z-index: 1;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.hero-slide-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+
+.hero-slide-bg::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(180deg, rgba(20,12,6,0.3) 0%, rgba(20,12,6,0.1) 45%, rgba(20,12,6,0.6) 100%);
+  z-index: 2;
+}
+
+.hero-slide-content {
+  position: absolute;
+  top: 96px;
+  left: 24px;
+  right: 24px;
+  z-index: 3;
+}
+
+
+
+/* Header Search Dropdown (Horizontal Slide-down) */
+.header-search-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1.5px solid var(--color-border);
+  box-shadow: 0 10px 24px rgba(58, 35, 21, 0.12);
+  padding: 12px 16px 14px;
+  z-index: 99;
+  transform: translateY(-10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
-  z-index: 100;
-  opacity: 0.5;
+}
+
+.header-search-dropdown.active {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.search-dropdown-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.search-input-wrap {
+  display: flex;
+  align-items: center;
+  background: #F4EAE0;
+  border-radius: 999px;
+  padding: 4px 12px;
+  border: 1px solid var(--color-border);
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.search-input-wrap:focus-within {
+  border-color: var(--color-espresso);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 2px rgba(58, 35, 21, 0.12);
+}
+
+.search-input-icon {
+  color: var(--color-espresso);
+  flex-shrink: 0;
+  margin-right: 8px;
+}
+
+.header-search-input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 13px;
+  color: var(--color-espresso);
+  padding: 8px 0;
+  outline: none;
+}
+
+.header-search-input::placeholder {
+  color: #9C897D;
+  font-size: 12px;
+}
+
+.search-clear-btn {
+  background: none;
+  border: none;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.search-clear-btn:hover {
+  color: var(--color-espresso);
+}
+
+.search-quick-tags {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: none;
+}
+
+.search-quick-tags::-webkit-scrollbar {
   display: none;
+}
+
+.search-tag-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex-shrink: 0;
+}
+
+.search-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  color: var(--color-espresso);
+  background: rgba(58, 35, 21, 0.06);
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.search-tag:hover {
+  background: var(--color-beige-button);
+  color: var(--color-espresso);
+}
+
+.search-tag--highlight {
+  background: rgba(37, 211, 102, 0.12);
+  color: #15803D;
+  border: 1px solid rgba(37, 211, 102, 0.3);
 }
 
     </style>
   </head>
-  <body class="preview-body-offset template-index">
-    <!-- Preview Controls Toolbar -->
-    <div class="preview-toolbar">
-      <div class="preview-nav">
-        <span style="font-weight:700; color:#E5C6A3; margin-right:8px;">Meril Home OS 2.0</span>
-        <a href="/" class="preview-nav-btn active">01 Ana Sayfa</a>
-        <a href="/product.html" class="preview-nav-btn">02 Ürün Detayı</a>
-        <button type="button" class="preview-nav-btn" id="btn-toggle-overlay">PNG Referans Katmanı</button>
-      </div>
-      <a href="/Meril-Home-Shopify.zip" class="preview-zip-btn" download>
-        ⬇ Shopify Teması (.zip)
-      </a>
-    </div>
-
-    <div class="site-wrapper overlay-container">
-      <img src="assets/01-Ana-Sayfa.png" class="overlay-ref-img" id="ref-overlay" alt="01-Ana-Sayfa Referans">
-
-      <!-- Site Header -->
+  <body class="template-index">
+    <div class="site-wrapper">
+      <!-- Header (Overlayed on Hero) -->
       <header class="site-header site-header--index" id="site-header">
         <div class="site-header-inner">
           <button class="header-icon-btn menu-toggle" id="menu-toggle-btn" aria-label="Menüyü Aç">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
 
           <a href="/" class="header-logo-link" aria-label="Meril Home Ana Sayfa">
-            <img src="assets/logo-white.png" alt="Meril Home" class="header-logo header-logo--light" width="138" height="42">
+            <img src="assets/meril-home-logo-krem.png" alt="Meril Home" class="header-logo header-logo--light" width="138" height="68">
           </a>
 
           <div class="header-actions">
             <button class="header-icon-btn search-toggle" aria-label="Arama Yap">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
             </button>
             <button class="header-icon-btn cart-toggle" id="cart-toggle-btn" aria-label="Sepet">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
               <span class="cart-count-badge" id="header-cart-badge">0</span>
             </button>
           </div>
         </div>
+      
+        <!-- Horizontal Slide-Down Search Bar -->
+        <div class="header-search-dropdown" id="header-search-dropdown" aria-hidden="true">
+          <div class="search-dropdown-inner">
+            <div class="search-input-wrap">
+              <svg class="search-input-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="search" class="header-search-input" id="header-search-input" placeholder="Duvar örtüsü, desen veya koleksiyon ara..." autocomplete="off">
+              <button type="button" class="search-clear-btn" id="search-close-btn" aria-label="Aramayı Kapat">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+              </button>
+            </div>
+            <div class="search-quick-tags">
+              <span class="search-tag-label">Popüler:</span>
+              <a href="/collection.html" class="search-tag">Güneş & Dağlar</a>
+              <a href="/collection.html" class="search-tag">Bohem</a>
+              <a href="/collection.html" class="search-tag">Astrolojik</a>
+              <a href="#custom-atelier" class="search-tag search-tag--highlight">Kişiye Özel</a>
+            </div>
+          </div>
+        </div>
+
       </header>
 
       <!-- Main Content -->
       <main id="MainContent" class="content-for-layout">
         <!-- Hero Section -->
         <section class="hero-section" id="hero-section">
-          <div class="hero-background" style="background-image: url('assets/hero-room.png');">
-            <div class="hero-tapestry-layer" id="hero-tapestry-layer"></div>
-          </div>
+          <div class="hero-slider-track" id="hero-slider-track">
+            <!-- Slide 0 -->
+            <div class="hero-slide active" data-slide="0">
+              <div class="hero-slide-bg" style="background-image: url('assets/ana-hero.webp');"></div>
+              <div class="hero-slide-content">
+                <div class="hero-badge">DUVAR ÖRTÜLERİ</div>
+                <h1 class="hero-title">
+                  <span>Duvarında</span>
+                  <span>Yeni Bir</span>
+                  <span>Hikâye</span>
+                </h1>
+                <p class="hero-subtitle">
+                  Evinizin atmosferini değiştiren<br>özel tasarım duvar örtüleri.
+                </p>
+                <a href="/collection.html" class="hero-btn">
+                  <span>Modelleri Keşfet</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
 
-          <div class="hero-content">
-            <div class="hero-badge">DUVAR ÖRTÜLERİ</div>
-            
-            <h1 class="hero-title">
-              <span>Duvarında</span>
-              <span>Yeni Bir</span>
-              <span>Hikâye</span>
-            </h1>
+            <!-- Slide 1 -->
+            <div class="hero-slide" data-slide="1">
+              <div class="hero-slide-bg" style="background-image: url('assets/yeni-koleksiyon.webp');"></div>
+              <div class="hero-slide-content">
+                <div class="hero-badge">YENİ KOLEKSİYON</div>
+                <h2 class="hero-title">
+                  <span>Bohem & Doğal</span>
+                  <span>Sıcak</span>
+                  <span>Dokular</span>
+                </h2>
+                <p class="hero-subtitle">
+                  Doğadan ilham alan tonlarla<br>yaşam alanınıza karakter katın.
+                </p>
+                <a href="/collection.html" class="hero-btn">
+                  <span>Koleksiyonu Gör</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
 
-            <p class="hero-subtitle">
-              Evinizin atmosferini değiştiren<br>özel tasarım duvar örtüleri.
-            </p>
-
-            <a href="/product.html" class="hero-btn">
-              <span>Modelleri Keşfet</span>
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </a>
+            <!-- Slide 2 -->
+            <div class="hero-slide" data-slide="2">
+              <div class="hero-slide-bg" style="background-image: url('assets/urun-gunes-ve-daglar.webp');"></div>
+              <div class="hero-slide-content">
+                <div class="hero-badge">KİŞİYE ÖZEL ATÖLYE</div>
+                <h2 class="hero-title">
+                  <span>Kendi Duvar</span>
+                  <span>Örtünü</span>
+                  <span>Tasarla</span>
+                </h2>
+                <p class="hero-subtitle">
+                  En sevdiğin fotoğrafı 3D provayla<br>özel ölçüde duvara taşı.
+                </p>
+                <a href="#custom-atelier" class="hero-btn">
+                  <span>Hemen Tasarla</span>
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+              </div>
+            </div>
           </div>
 
           <div class="hero-bottom-controls">
             <div class="hero-indicators" role="tablist" aria-label="Slayt Göstergeleri">
-              <button class="hero-pill active" data-slide="0" aria-label="Grup 1"></button>
-              <button class="hero-pill" data-slide="1" aria-label="Grup 2"></button>
-              <button class="hero-pill" data-slide="2" aria-label="Grup 3"></button>
+              <button class="hero-pill active" data-slide="0" aria-label="Slayt 1"></button>
+              <button class="hero-pill" data-slide="1" aria-label="Slayt 2"></button>
+              <button class="hero-pill" data-slide="2" aria-label="Slayt 3"></button>
             </div>
 
             <div class="hero-nav-arrows">
               <button class="hero-arrow-btn prev" id="hero-prev-btn" aria-label="Önceki Model">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
               </button>
               <button class="hero-arrow-btn next" id="hero-next-btn" aria-label="Sonraki Model">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </button>
             </div>
           </div>
@@ -1342,65 +3320,82 @@ a {
           <div class="trust-badges-inner">
             <div class="trust-badge-item">
               <div class="trust-badge-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
               </div>
               <div class="trust-badge-label">Hızlı Kargo</div>
             </div>
 
             <div class="trust-badge-item">
               <div class="trust-badge-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
               </div>
               <div class="trust-badge-label">Güvenli Alışveriş</div>
             </div>
 
             <div class="trust-badge-item">
               <div class="trust-badge-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
               </div>
               <div class="trust-badge-label">Kapıda Ödeme</div>
             </div>
 
             <div class="trust-badge-item">
               <div class="trust-badge-icon">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
               </div>
               <div class="trust-badge-label">Kolay İade</div>
             </div>
           </div>
         </section>
 
-        <!-- Collections Section -->
+        <!-- Collections Section (with official WebP textures & SVG symbols) -->
         <section class="collections-section">
           <div class="collections-header">
             <div class="collections-badge-subtitle">KOLEKSİYONLAR</div>
             <h2 class="collections-main-title">Tarzına Uygun Duvar Örtüleri</h2>
           </div>
 
-          <div class="collections-scroll-container">
-            <div class="collections-grid">
-              <a href="/product.html" class="collection-card" style="background-image: url('assets/collection-bohem.png');">
-                <span class="visually-hidden">Bohem</span>
-              </a>
-              <a href="/product.html" class="collection-card" style="background-image: url('assets/collection-dogal.png');">
-                <span class="visually-hidden">Doğal</span>
-              </a>
-              <a href="/product.html" class="collection-card" style="background-image: url('assets/collection-astrolojik.png');">
-                <span class="visually-hidden">Astrolojik</span>
-              </a>
-              <a href="/product.html" class="collection-card" style="background-image: url('assets/collection-manzara.png');">
-                <span class="visually-hidden">Manzara</span>
-              </a>
-              <a href="/product.html" class="collection-card" style="background-image: url('assets/collection-modern.png');">
-                <span class="visually-hidden">Modern</span>
-              </a>
-            </div>
+          <div class="collections-grid">
+            <a href="/collection.html" class="collection-card" style="background-image: url('assets/kategori-bohem.webp');">
+              <div class="collection-card-inner">
+                <svg class="collection-card-icon" width="24" height="24"><use href="assets/meril-kategori-ikonlari.svg#bohem"></use></svg>
+                <span class="collection-card-name">Bohem</span>
+              </div>
+            </a>
+
+            <a href="/collection.html" class="collection-card" style="background-image: url('assets/kategori-dogal.webp');">
+              <div class="collection-card-inner">
+                <svg class="collection-card-icon" width="24" height="24"><use href="assets/meril-kategori-ikonlari.svg#dogal"></use></svg>
+                <span class="collection-card-name">Doğal</span>
+              </div>
+            </a>
+
+            <a href="/collection.html" class="collection-card" style="background-image: url('assets/kategori-astrolojik.webp');">
+              <div class="collection-card-inner">
+                <svg class="collection-card-icon" width="24" height="24"><use href="assets/meril-kategori-ikonlari.svg#astrolojik"></use></svg>
+                <span class="collection-card-name">Astrolojik</span>
+              </div>
+            </a>
+
+            <a href="/collection.html" class="collection-card" style="background-image: url('assets/kategori-manzara.webp');">
+              <div class="collection-card-inner">
+                <svg class="collection-card-icon" width="24" height="24"><use href="assets/meril-kategori-ikonlari.svg#manzara"></use></svg>
+                <span class="collection-card-name">Manzara</span>
+              </div>
+            </a>
+
+            <a href="/collection.html" class="collection-card" style="background-image: url('assets/kategori-modern.webp');">
+              <div class="collection-card-inner">
+                <svg class="collection-card-icon" width="24" height="24"><use href="assets/meril-kategori-ikonlari.svg#modern"></use></svg>
+                <span class="collection-card-name">Modern</span>
+              </div>
+            </a>
           </div>
         </section>
 
-        <!-- Promo Banner Section -->
+        <!-- Promo Banner Section (with official yeni-koleksiyon.webp) -->
         <section class="promo-section">
-          <div class="promo-card-wrapper" style="background-image: url('assets/promo-banner.png');">
+          <div class="promo-card-wrapper" style="background-image: url('assets/yeni-koleksiyon.webp');">
             <div class="promo-card-content">
               <h3 class="promo-title">
                 <em>Yeni</em><br>
@@ -1409,28 +3404,547 @@ a {
               <p class="promo-desc">
                 Doğadan ilham alan tasarımlar<br>şimdi Meril Home'da.
               </p>
-              <a href="/product.html" class="promo-btn">
+              <a href="/collection.html" class="promo-btn">
                 <span>Hemen Keşfet</span>
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
               </a>
             </div>
           </div>
         </section>
+      
+        <!-- ============================================== -->
+        <!-- 1. KİŞİYE ÖZEL ATÖLYE & DOKUMA BÖLÜMÜ           -->
+        <!-- ============================================== -->
+        <!-- ============================================== -->
+        <!-- 1. KİŞİYE ÖZEL DUVAR ÖRTÜSÜ ATÖLYESİ           -->
+        <!-- ============================================== -->
+        <section class="custom-atelier-section" id="custom-atelier">
+          <span class="section-eyebrow">MERİL ATÖLYE & KİŞİYE ÖZEL</span>
+          <h2 class="section-main-title">Kendi Duvar Örtünü Tasarla</h2>
+          <p class="section-lead-text">
+            Evinize, en sevdiğiniz anılara veya bir sanat eserine özel duvar örtüsü üretiyoruz. Ölçünüzü seçin, fotoğrafınızı WhatsApp'tan bize iletin; ücretsiz 3D baskı provanızı 2 saat içinde hazırlayalım.
+          </p>
+
+          <div class="atelier-configurator-card">
+            <!-- Mockup Frame -->
+            <div class="atelier-mockup-frame">
+              <div class="mockup-badges-wrap">
+                <span class="mockup-badge">Kişiye Özel Duvar Örtüsü</span>
+                <span class="mockup-dim-badge" id="atelier-preview-dim-badge">100 × 140 cm</span>
+              </div>
+
+              <!-- Wooden hanging bar -->
+              
+
+              <!-- Tapestry preview frame -->
+              <div class="mockup-tapestry-wrap">
+                <img id="atelier-preview-img" src="assets/urun-gunes-ve-daglar.webp" alt="Kişiye Özel Duvar Örtüsü" class="atelier-preview-img">
+              </div>
+
+              <!-- Floor line for room illusion -->
+              <div class="mockup-wall-line"></div>
+            </div>
+
+            <!-- Size Selection (Only 70x100, 100x140, 140x200) -->
+            <div class="atelier-step-label">
+              <span><span class="atelier-step-num">1</span>İstediğiniz Ölçüyü Seçin</span>
+              <span id="label-selected-size" style="font-size: 10px; color: var(--color-espresso); font-weight: 700;">100 × 140 cm</span>
+            </div>
+            <div class="atelier-sizes-grid atelier-sizes-grid--three">
+              <button type="button" class="atelier-size-chip" data-size="70 × 100 cm" data-price="1090">
+                <span class="size-chip-dim">70 × 100 cm</span>
+                <span class="size-chip-sub">Küçük / Dar Duvarlar</span>
+              </button>
+              <button type="button" class="atelier-size-chip active" data-size="100 × 140 cm" data-price="1490">
+                <span class="size-chip-dim">100 × 140 cm</span>
+                <span class="size-chip-sub">Standart / En Çok Satan</span>
+              </button>
+              <button type="button" class="atelier-size-chip" data-size="140 × 200 cm" data-price="1990">
+                <span class="size-chip-dim">140 × 200 cm</span>
+                <span class="size-chip-sub">Büyük / Koltuk Arkası</span>
+              </button>
+            </div>
+
+            <!-- WhatsApp Direct Send Card -->
+            <div class="atelier-wa-box">
+              <div class="atelier-wa-icon-box">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.771.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.824 0-3.535-.49-5.018-1.341l-6.982 1.826 1.859-6.797c-.947-1.547-1.493-3.366-1.493-5.322 0-5.514 4.486-10 10-10 5.514 0 10 4.486 10 10z"/></svg>
+              </div>
+              <div class="atelier-wa-text-box">
+                <div class="atelier-wa-title">Fotoğrafını WhatsApp'tan Kolayca Gönder</div>
+                <div class="atelier-wa-desc">
+                  Telefonundaki fotoğrafı, yüksek çözünürlüklü çizimi veya aile anını doğrudan WhatsApp hattımıza gönder; tasarım ekibimiz duvarda nasıl duracağına dair <strong>ücretsiz 3D baskı provasını</strong> hemen hazırlasın.
+                </div>
+              </div>
+            </div>
+
+            <!-- Price banner -->
+            <div class="atelier-price-banner">
+              <div class="price-banner-info">
+                <span class="price-banner-label">Özel Üretim Tutarı:</span>
+                <span class="price-banner-amount" id="atelier-total-price">₺1.490,00</span>
+              </div>
+              <span class="price-banner-tag">Ahşap Askı Kiti Dahil</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="atelier-actions-group">
+              <a href="https://wa.me/905555555555?text=Merhaba%20Meril%20Home%2C%20ki%C5%9Fiye%20%C3%B6zel%20duvar%20%C3%B6rt%C3%BCs%C3%BC%20yapt%C4%B1rmak%20istiyorum.%0A%C3%96l%C3%A7%C3%BC%3A%20100%20%C3%97%20140%20cm%0AG%C3%B6rselimi%20iletiyorum%2C%203D%20bask%C4%B1%20provas%C4%B1%20haz%C4%B1rlayabilir%20misiniz%3F" target="_blank" rel="noopener" class="atelier-whatsapp-cta" id="atelier-wa-btn">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.669-.699c.969.54 1.771.82 2.791.82 3.181 0 5.767-2.586 5.768-5.766 0-3.18-2.587-5.766-5.768-5.766zm9.969 5.766c0 5.514-4.486 10-10 10-1.824 0-3.535-.49-5.018-1.341l-6.982 1.826 1.859-6.797c-.947-1.547-1.493-3.366-1.493-5.322 0-5.514 4.486-10 10-10 5.514 0 10 4.486 10 10z"/></svg>
+                <span>Fotoğrafını WhatsApp'tan Gönder & Prova İste</span>
+              </a>
+
+              <button type="button" class="atelier-cart-cta" id="atelier-add-cart-btn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <span>Ölçüyü Seçip Sepete Ekle</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 3 Adımda Süreç -->
+          <div class="atelier-process-strip">
+            <div class="process-step-card">
+              <div class="process-step-num">1</div>
+              <div class="process-step-title">Ölçünü Seç</div>
+              <div class="process-step-desc">70×100, 100×140 veya 140×200 cm boyutunu belirle.</div>
+            </div>
+            <div class="process-step-card">
+              <div class="process-step-num">2</div>
+              <div class="process-step-title">Görseli İlet</div>
+              <div class="process-step-desc">Fotoğrafını WhatsApp'tan tasarım ekibimize gönder.</div>
+            </div>
+            <div class="process-step-card">
+              <div class="process-step-num">3</div>
+              <div class="process-step-title">3D Prova & Baskı</div>
+              <div class="process-step-desc">2 saatte ücretsiz provanı onayla, kapına gelsin.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 2. EN ÇOK TERCİH EDİLEN DUVAR ÖRTÜLERİ         -->
+        <!-- ============================================== -->
+        <section class="home-bestsellers-section">
+          <div class="home-bestsellers-header">
+            <span class="section-eyebrow">POPÜLER MODELLER</span>
+            <h2 class="section-main-title">En Çok Tercih Edilenler</h2>
+            <p class="section-lead-text">Yaşam alanlarında en çok yer bulan, en yüksek puanlı favori modellerimiz.</p>
+          </div>
+
+          <div class="products-grid-2col">
+            <!-- Product 1 -->
+            <div class="product-grid-card">
+              <div class="product-card-media">
+                <a href="/product.html">
+                  <img src="assets/urun-gunes-ve-daglar.webp" alt="Güneş ve Dağlar Duvar Örtüsü" loading="lazy">
+                </a>
+                <button type="button" class="card-wishlist-btn" aria-label="Favorilere Ekle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+                <span class="card-badge-badge">🔥 Çok Satan</span>
+              </div>
+              <div class="product-card-details">
+                <h3 class="product-card-title"><a href="/product.html">Güneş ve Dağlar Duvar Örtüsü</a></h3>
+                <div class="product-card-rating">
+                  <div class="rating-stars">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="rating-num">(412)</span>
+                </div>
+                <div class="product-card-price-row">
+                  <div class="price-block">
+                    <div class="price-current">₺1.490,00</div>
+                    <div class="price-old">₺1.999,00</div>
+                  </div>
+                  <button type="button" class="card-quick-add-btn" data-title="Güneş ve Dağlar Duvar Örtüsü" data-price="₺1.490,00" aria-label="Sepete Ekle">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  </button>
+                </div>
+                <span class="product-card-discount-tag">%25 İndirim</span>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-grid-card">
+              <div class="product-card-media">
+                <a href="/product.html">
+                  <img src="assets/galeri-ay-ve-daglar.webp" alt="Ay Evreleri Duvar Örtüsü" loading="lazy">
+                </a>
+                <button type="button" class="card-wishlist-btn" aria-label="Favorilere Ekle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+              <div class="product-card-details">
+                <h3 class="product-card-title"><a href="/product.html">Ay Evreleri Duvar Örtüsü</a></h3>
+                <div class="product-card-rating">
+                  <div class="rating-stars">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="rating-num">(287)</span>
+                </div>
+                <div class="product-card-price-row">
+                  <div class="price-block">
+                    <div class="price-current">₺1.399,00</div>
+                    <div class="price-old">₺1.799,00</div>
+                  </div>
+                  <button type="button" class="card-quick-add-btn" data-title="Ay Evreleri Duvar Örtüsü" data-price="₺1.399,00" aria-label="Sepete Ekle">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  </button>
+                </div>
+                <span class="product-card-discount-tag">%22 İndirim</span>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-grid-card">
+              <div class="product-card-media">
+                <a href="/product.html">
+                  <img src="assets/galeri-kemer.webp" alt="Bohem Kemer Duvar Örtüsü" loading="lazy">
+                </a>
+                <button type="button" class="card-wishlist-btn" aria-label="Favorilere Ekle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+              <div class="product-card-details">
+                <h3 class="product-card-title"><a href="/product.html">Bohem Kemer Duvar Örtüsü</a></h3>
+                <div class="product-card-rating">
+                  <div class="rating-stars">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="rating-num">(195)</span>
+                </div>
+                <div class="product-card-price-row">
+                  <div class="price-block">
+                    <div class="price-current">₺1.299,00</div>
+                    <div class="price-old">₺1.699,00</div>
+                  </div>
+                  <button type="button" class="card-quick-add-btn" data-title="Bohem Kemer Duvar Örtüsü" data-price="₺1.299,00" aria-label="Sepete Ekle">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  </button>
+                </div>
+                <span class="product-card-discount-tag">%24 İndirim</span>
+              </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-grid-card">
+              <div class="product-card-media">
+                <a href="/product.html">
+                  <img src="assets/galeri-zeytin.webp" alt="Zeytin Dalı Duvar Örtüsü" loading="lazy">
+                </a>
+                <button type="button" class="card-wishlist-btn" aria-label="Favorilere Ekle">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                </button>
+              </div>
+              <div class="product-card-details">
+                <h3 class="product-card-title"><a href="/product.html">Zeytin Dalı Duvar Örtüsü</a></h3>
+                <div class="product-card-rating">
+                  <div class="rating-stars">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                  </div>
+                  <span class="rating-num">(340)</span>
+                </div>
+                <div class="product-card-price-row">
+                  <div class="price-block">
+                    <div class="price-current">₺1.449,00</div>
+                    <div class="price-old">₺1.899,00</div>
+                  </div>
+                  <button type="button" class="card-quick-add-btn" data-title="Zeytin Dalı Duvar Örtüsü" data-price="₺1.449,00" aria-label="Sepete Ekle">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  </button>
+                </div>
+                <span class="product-card-discount-tag">%23 İndirim</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="bestsellers-footer-cta">
+            <a href="/collection.html" class="bestsellers-all-link">
+              <span>Tüm Koleksiyonu Gör (24 Model)</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 3. MERİL ATÖLYE KALİTE VE AYRICALIKLARI         -->
+        <!-- ============================================== -->
+        <section class="atelier-craft-section">
+          <div class="craft-grid">
+            <div class="craft-card">
+              <div class="craft-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+              </div>
+              <div class="craft-title">%100 Doğal Pamuk Keten</div>
+              <div class="craft-desc">380 gr tok tuşe, sarkma yapmaz, asıldığı duvarda kusursuz durur.</div>
+            </div>
+
+            <div class="craft-card">
+              <div class="craft-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
+              </div>
+              <div class="craft-title">OEKO-TEX® Eko-Baskı</div>
+              <div class="craft-desc">Kokusuz, bebek & evcil hayvan dostu su bazlı pigment baskı.</div>
+            </div>
+
+            <div class="craft-card">
+              <div class="craft-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              </div>
+              <div class="craft-title">Ahşap Askı Kiti Dahil</div>
+              <div class="craft-desc">Doğal masif çubuk ve jüt ip her siparişle kutuda hazır gelir.</div>
+            </div>
+
+            <div class="craft-card">
+              <div class="craft-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+              </div>
+              <div class="craft-title">30°C Makinede Yıkanır</div>
+              <div class="craft-desc">Özel fikse sayesinde solmaz, çekmez, kolayca ütülenebilir.</div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 4. #MERILHOMEEVİMDE YAŞAM ALANLARI             -->
+        <!-- ============================================== -->
+        <section class="home-social-section">
+          <div class="home-bestsellers-header">
+            <span class="section-eyebrow">İLHAM KÖŞESİ</span>
+            <h2 class="section-main-title">#MerilHomeEvimde</h2>
+            <p class="section-lead-text">Müşterilerimizin evlerinden en beğenilen kareler ve dekorasyon fikirleri.</p>
+          </div>
+
+          <div class="social-scroll-wrap">
+            <div class="social-card">
+              <div class="social-img-box">
+                <img src="assets/ana-hero.webp" alt="Salon Dekorasyonu">
+                <span class="social-tag-pill">Salon Bohem Köşe</span>
+              </div>
+              <div class="social-card-body">
+                <div class="social-handle">@selin.interiors</div>
+                <div class="social-comment">"Koltuk arkasındaki boş duvar tam aradığı sıcaklığa kavuştu."</div>
+              </div>
+            </div>
+
+            <div class="social-card">
+              <div class="social-img-box">
+                <img src="assets/yeni-koleksiyon.webp" alt="Yatak Odası Duvar Örtüsü">
+                <span class="social-tag-pill">Yatak Odası</span>
+              </div>
+              <div class="social-card-body">
+                <div class="social-handle">@begumhome</div>
+                <div class="social-comment">"Ahşap askı kitiyle 2 dakikada astım, tablodan çok daha sıcak."</div>
+              </div>
+            </div>
+
+            <div class="social-card">
+              <div class="social-img-box">
+                <img src="assets/urun-gunes-ve-daglar.webp" alt="Özel Ölçü Dokuma">
+                <span class="social-tag-pill">Özel Ölçü Dokuma</span>
+              </div>
+              <div class="social-card-body">
+                <div class="social-handle">@can.design</div>
+                <div class="social-comment">"Atölyeye salonuma göre özel 160x230 yaptırdım, dokusu harika."</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 5. GERÇEK MÜŞTERİ YORUMLARI & PUANLAR          -->
+        <!-- ============================================== -->
+        <section class="home-reviews-section">
+          <div class="reviews-score-badge">
+            <div class="rating-stars">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="#E5A93C" stroke="#E5A93C"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            </div>
+            <span class="reviews-score-num">4.9 / 5.0 (1.840+ Değerlendirme)</span>
+          </div>
+
+          <div class="home-reviews-grid">
+            <div class="home-review-card">
+              <div class="home-review-header">
+                <span class="home-review-author">
+                  Zeynep K.
+                  <svg class="verified-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </span>
+                <span style="font-size: 9px; color: var(--color-text-muted);">2 gün önce</span>
+              </div>
+              <p class="home-review-body">
+                "Salonum için özel 140×200 ölçüsünde atölyeden yaptırdım. Baskı netliği ve pamuk ketenin tokluğu beklediğimden kat kat iyi çıktı. Kesinlikle tavsiye ederim."
+              </p>
+            </div>
+
+            <div class="home-review-card">
+              <div class="home-review-header">
+                <span class="home-review-author">
+                  Burak T.
+                  <svg class="verified-icon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                </span>
+                <span style="font-size: 9px; color: var(--color-text-muted);">Geçen hafta</span>
+              </div>
+              <p class="home-review-body">
+                "Güneş ve Dağlar modelini aldım. Ahşap askı kitiyle birlikte gelmesi çok büyük rahatlık, 2 dakikada astım. Odanın tüm enerjisini değiştirdi."
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 6. ANA SAYFA SIKÇA SORULAN SORULAR (SSS)       -->
+        <!-- ============================================== -->
+        <section class="home-faq-section">
+          <div class="home-bestsellers-header">
+            <span class="section-eyebrow">BİLGİ MERKEZİ</span>
+            <h2 class="section-main-title">Sıkça Sorulan Sorular</h2>
+            <p class="section-lead-text">Özel siparişler, kumaş özellikleri ve asım hakkında merak edilenler.</p>
+          </div>
+
+          <div class="faq-accordion-list">
+            <div class="faq-item active">
+              <button type="button" class="faq-question-btn" aria-expanded="true">
+                <span>Kişiye özel tasarım için hangi kalitede görsel göndermeliyim?</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="faq-answer" style="display: block;">
+                Telefonunuzla çektiğiniz net fotoğraflar veya dijital illüstrasyonlar (JPG, PNG, PDF) yeterlidir. Tasarım ekibimiz görseli sisteme alır almaz çözünürlük kontrolü yapar ve gerekirse yapay zeka ile netleştirip 2 saat içinde ücretsiz 3D onay provası iletir.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span>İstediğim özel ölçüde halı veya duvar örtüsü yapabiliyor musunuz?</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="faq-answer" style="display: none;">
+                Evet! Standart boyutların haricinde, salonunuza, konsol üstünüze veya yatak başınıza tam uyacak şekilde 50 cm'den 400 cm'ye kadar dilediğiniz özel ölçüde üretim yapıyoruz.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span>Duvara nasıl asılır? Duvarı delmek gerekir mi?</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="faq-answer" style="display: none;">
+                Tüm duvar örtülerimizle birlikte el yapımı masif ahşap askı çubuğu ve jüt asma ipi standart olarak kutuda hazır gelir. Tek bir mini çiviyle veya duvara zarar vermeyen yapışkanlı askı kancalarıyla saniyeler içinde asabilirsiniz.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span>Yıkanabilir mi, renkleri solar mı?</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="faq-answer" style="display: none;">
+                30°C hassas yıkama programında makinede rahatlıkla yıkanabilir. Kumaş dokusu özel ısı fikseli pigment baskı teknolojisine sahip olduğundan renkleri solmaz, akmaz ve düşük ısıda ütülenebilir.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button type="button" class="faq-question-btn" aria-expanded="false">
+                <span>Kişiye özel sipariş kaç günde elime ulaşır?</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+              </button>
+              <div class="faq-answer" style="display: none;">
+                Özel atölye üretimleri prova onayınızın ardından 3-4 iş günü içerisinde özenle dokunur, kalite kontrolü tamamlanır ve sigortalı ücretsiz kargo ile adresinize sevk edilir.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- 7. E-BÜLTEN & HOŞ GELDİN İNDİRİMİ             -->
+        <!-- ============================================== -->
+        <section class="home-newsletter-card">
+          <h3 class="newsletter-title">Meril Home Ailesine Katılın</h3>
+          <p class="newsletter-desc">
+            İlk siparişinizde geçerli %10 hoş geldin indirim kodunuz ve yeni koleksiyon duyuruları için bültenimize kaydolun.
+          </p>
+          <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Tebrikler! %10 indirim kodunuz: MERIL10');">
+            <input type="email" class="newsletter-input" placeholder="E-posta adresiniz..." required>
+            <button type="submit" class="newsletter-btn">Kaydol</button>
+          </form>
+        </section>
+
+
       </main>
 
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-inner">
-          <img src="assets/logo-dark.png" alt="Meril Home" class="footer-logo" width="120" height="36">
-          <p class="footer-desc">Evinizin atmosferini değiştiren özel tasarım duvar örtüleri.</p>
-          <div class="footer-bottom">
-            <p>&copy; 2026 Meril Home. Tüm hakları saklıdır.</p>
+      
+            <!-- Rich Real E-Commerce Footer -->
+      <footer class="enriched-footer">
+        <div class="enriched-footer-top">
+          <img src="assets/meril-home-logo-krem.png" alt="Meril Home" class="footer-logo" width="130" height="62">
+          <p style="font-size: 11px; color: rgba(250, 241, 232, 0.7); max-width: 320px; line-height: 1.5;">
+            Evinizin atmosferini değiştiren özel tasarım duvar örtüleri, kişiye özel atölye dokuma halı ve kilimler.
+          </p>
+        </div>
+
+        <div class="footer-nav-grid">
+          <div class="footer-col">
+            <div class="footer-col-title">KOLEKSİYONLAR</div>
+            <div class="footer-col-links">
+              <a href="/collection.html" class="footer-link">Bohem Duvar Örtüleri</a>
+              <a href="/collection.html" class="footer-link">Doğal Dokular</a>
+              <a href="/collection.html" class="footer-link">Astrolojik & Mistik</a>
+              <a href="/collection.html" class="footer-link">Manzara Serisi</a>
+              <a href="/collection.html" class="footer-link">Modern Çizgiler</a>
+              <a href="#custom-atelier" class="footer-link">Kişiye Özel Dokuma</a>
+            </div>
+          </div>
+
+          <div class="footer-col">
+            <div class="footer-col-title">MÜŞTERİ HİZMETLERİ</div>
+            <div class="footer-col-links">
+              <a href="#custom-atelier" class="footer-link">Özel Sipariş Rehberi</a>
+              <a href="/product.html" class="footer-link">Asım & Montaj Kılavuzu</a>
+              <a href="#" class="footer-link">Kargo ve Teslimat</a>
+              <a href="#" class="footer-link">Kolay İade & Değişim</a>
+              <a href="#" class="footer-link">Sıkça Sorulan Sorular</a>
+              <a href="https://wa.me/905555555555" class="footer-link" target="_blank">WhatsApp Destek Hattı</a>
+            </div>
           </div>
         </div>
+
+        <div class="footer-trust-row">
+          <span>🔒 256-Bit SSL Güvenli Ödeme</span>
+          <span>•</span>
+          <span>💳 Kredi Kartına Taksit</span>
+          <span>•</span>
+          <span>📦 Ücretsiz Kargo</span>
+        </div>
+
+        <div class="footer-bottom-copy">
+          &copy; 2026 Meril Home — Tüm Hakları Saklıdır. Made with craftsmanship.
+        </div>
       </footer>
+
+
     </div>
 
-    <!-- Mobile Drawer -->
+    
+    <!-- Mobile Navigation Drawer -->
     <div id="mobile-drawer" class="mobile-drawer" aria-hidden="true">
       <div class="mobile-drawer-overlay" data-action="close-drawer"></div>
       <div class="mobile-drawer-content">
@@ -1439,13 +3953,14 @@ a {
           <button class="mobile-drawer-close" data-action="close-drawer" aria-label="Kapat">&times;</button>
         </div>
         <nav class="mobile-nav-links">
-          <a href="/" class="nav-item active">Ana Sayfa</a>
+          <a href="/" class="nav-item">Ana Sayfa</a>
+          <a href="/collection.html" class="nav-item">Tüm Duvar Örtüleri</a>
           <a href="/product.html" class="nav-item">Güneş ve Dağlar Duvar Örtüsü</a>
-          <a href="/product.html" class="nav-item">Bohem Koleksiyonu</a>
-          <a href="/product.html" class="nav-item">Doğal Dokular</a>
-          <a href="/product.html" class="nav-item">Astrolojik</a>
-          <a href="/product.html" class="nav-item">Manzara Örtüleri</a>
-          <a href="/product.html" class="nav-item">Modern Tasarımlar</a>
+          <a href="/collection.html" class="nav-item">Bohem Koleksiyonu</a>
+          <a href="/collection.html" class="nav-item">Doğal Dokular</a>
+          <a href="/collection.html" class="nav-item">Astrolojik</a>
+          <a href="/collection.html" class="nav-item">Manzara Örtüleri</a>
+          <a href="/collection.html" class="nav-item">Modern Tasarımlar</a>
         </nav>
       </div>
     </div>
@@ -1460,18 +3975,18 @@ a {
         </div>
         <div class="cart-drawer-body" id="cart-drawer-items">
           <div class="cart-item">
-            <img src="assets/product-main.png" alt="Güneş ve Dağlar Duvar Örtüsü" class="cart-item-img">
+            <img src="assets/urun-gunes-ve-daglar.webp" alt="Güneş ve Dağlar Duvar Örtüsü" class="cart-item-img">
             <div class="cart-item-info">
               <div class="cart-item-title">Güneş ve Dağlar Duvar Örtüsü</div>
-              <div class="cart-item-variant" id="cart-item-selected-size">Ölçü: 150 × 200 cm</div>
-              <div class="cart-item-price">₺1.499,00 <span class="cart-item-old-price">₺1.999,00</span></div>
+              <div class="cart-item-variant" id="cart-item-selected-size">Ölçü: 100 × 140 cm</div>
+              <div class="cart-item-price">₺1.490,00 <span class="cart-item-old-price">₺1.999,00</span></div>
             </div>
           </div>
         </div>
         <div class="cart-drawer-footer">
           <div class="cart-drawer-subtotal">
             <span>Ara Toplam:</span>
-            <span class="cart-total-amount" id="cart-total-amount">₺1.499,00</span>
+            <span class="cart-total-amount" id="cart-total-amount">₺1.490,00</span>
           </div>
           <p class="cart-free-shipping-note">🎉 Tüm siparişlerde hızlı kargo bedava!</p>
           <a href="#" class="btn-checkout">Siparişi Tamamla</a>
@@ -1479,8 +3994,9 @@ a {
       </div>
     </div>
 
+
     <script>
-      // Meril Home - JavaScript Logic
+// Meril Home - Complete Client JavaScript
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Mobile Drawer Navigation
   const menuBtn = document.getElementById('menu-toggle-btn');
@@ -1498,12 +4014,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const cartCloses = document.querySelectorAll('[data-action="close-cart"]');
   const headerCartBadge = document.getElementById('header-cart-badge');
   const cartCountBadge = document.getElementById('cart-count-badge');
+  const cartTotalAmount = document.getElementById('cart-total-amount');
 
   let cartCount = 0;
 
   function openCart() {
     if (cartDrawer) {
       cartDrawer.classList.add('active');
+      cartDrawer.setAttribute('aria-hidden', 'false');
+    }
+  }
+
+  function closeCart() {
+    if (cartDrawer) {
+      cartDrawer.classList.remove('active');
+      cartDrawer.setAttribute('aria-hidden', 'true');
     }
   }
 
@@ -1512,110 +4037,85 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cartCountBadge) cartCountBadge.textContent = cartCount;
   }
 
-  if (cartBtn && cartDrawer) {
-    cartBtn.addEventListener('click', openCart);
-    cartCloses.forEach(el => el.addEventListener('click', () => cartDrawer.classList.remove('active')));
-  }
+  if (cartBtn) cartBtn.addEventListener('click', openCart);
+  cartCloses.forEach(el => el.addEventListener('click', closeCart));
 
-  // 3. Size Variant Selection
+  // 3. Product Variant Selector (Product page)
   const variantChips = document.querySelectorAll('.variant-chip');
-  const productPrice = document.getElementById('product-price');
-  const productComparePrice = document.getElementById('product-compare-price');
-  const stickyPrice = document.getElementById('sticky-price');
-  const stickyCompare = document.getElementById('sticky-compare');
+  const currentPriceEl = document.querySelector('.price-current');
+  const oldPriceEl = document.querySelector('.price-old');
+  const stickyCurrentPrice = document.querySelector('.sticky-current-price');
+  const stickyOldPrice = document.querySelector('.sticky-old-price');
   const cartVariantText = document.getElementById('cart-item-selected-size');
-  const cartTotalAmount = document.getElementById('cart-total-amount');
 
   variantChips.forEach(chip => {
     chip.addEventListener('click', () => {
       variantChips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
 
-      const size = chip.getAttribute('data-size');
       const price = chip.getAttribute('data-price');
       const compare = chip.getAttribute('data-compare');
+      const size = chip.getAttribute('data-size');
 
-      if (productPrice) productPrice.textContent = price;
-      if (productComparePrice) productComparePrice.textContent = compare;
-      if (stickyPrice) stickyPrice.textContent = price;
-      if (stickyCompare) stickyCompare.textContent = compare;
-      if (cartVariantText) cartVariantText.textContent = 'Ölçü: ' + size;
-      if (cartTotalAmount) cartTotalAmount.textContent = price;
+      if (currentPriceEl && price) currentPriceEl.textContent = price;
+      if (oldPriceEl && compare) oldPriceEl.textContent = compare;
+      if (stickyCurrentPrice && price) stickyCurrentPrice.textContent = price;
+      if (stickyOldPrice && compare) stickyOldPrice.textContent = compare;
+      if (cartVariantText && size) cartVariantText.textContent = 'Ölçü: ' + size;
     });
   });
 
   // 4. Quantity Selector
-  const qtyDecrease = document.getElementById('qty-decrease');
-  const qtyIncrease = document.getElementById('qty-increase');
-  const qtyValue = document.getElementById('qty-value');
-  let quantity = 1;
+  const qtyInput = document.getElementById('product-quantity');
+  const qtyMinus = document.getElementById('qty-minus');
+  const qtyPlus = document.getElementById('qty-plus');
 
-  if (qtyDecrease && qtyIncrease && qtyValue) {
-    qtyDecrease.addEventListener('click', () => {
-      if (quantity > 1) {
-        quantity--;
-        qtyValue.textContent = quantity;
-      }
+  if (qtyMinus && qtyPlus && qtyInput) {
+    qtyMinus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      if (val > 1) qtyInput.value = val - 1;
     });
-
-    qtyIncrease.addEventListener('click', () => {
-      quantity++;
-      qtyValue.textContent = quantity;
+    qtyPlus.addEventListener('click', () => {
+      let val = parseInt(qtyInput.value) || 1;
+      qtyInput.value = val + 1;
     });
   }
 
-  // 5. Add to Cart Actions (Main & Sticky Sync)
-  const btnAddToCart = document.getElementById('btn-add-to-cart');
-  const btnStickyAtc = document.getElementById('btn-sticky-atc');
+  // 5. Add to Cart Actions
+  const addToCartBtn = document.getElementById('add-to-cart-btn');
+  const stickyAtcBtn = document.getElementById('sticky-atc-btn');
 
   function handleAddToCart() {
-    cartCount += quantity;
+    const qty = qtyInput ? (parseInt(qtyInput.value) || 1) : 1;
+    cartCount += qty;
     updateCartUI();
     openCart();
   }
 
-  if (btnAddToCart) btnAddToCart.addEventListener('click', handleAddToCart);
-  if (btnStickyAtc) btnStickyAtc.addEventListener('click', handleAddToCart);
+  if (addToCartBtn) addToCartBtn.addEventListener('click', handleAddToCart);
+  if (stickyAtcBtn) stickyAtcBtn.addEventListener('click', handleAddToCart);
 
-  // 6. Gallery Image & Thumbnails Switcher
-  const mainProductImg = document.getElementById('main-product-img');
-  const thumbnails = document.querySelectorAll('.thumbnail-item');
-  const galleryPills = document.querySelectorAll('.gallery-pill');
-  let activeImageIndex = 0;
+  // 6. Gallery Thumbnails (Product Page)
+  const mainGalleryImg = document.getElementById('main-gallery-img');
+  const galleryThumbs = document.querySelectorAll('.gallery-thumb');
 
-  function setActiveGalleryImage(index) {
-    activeImageIndex = (index + thumbnails.length) % thumbnails.length;
-    thumbnails.forEach((t, i) => {
-      t.classList.toggle('active', i === activeImageIndex);
+  galleryThumbs.forEach(thumb => {
+    thumb.addEventListener('click', () => {
+      galleryThumbs.forEach(t => t.classList.remove('active'));
+      thumb.classList.add('active');
+
+      const fullSrc = thumb.getAttribute('data-full-img');
+      if (mainGalleryImg && fullSrc) {
+        mainGalleryImg.src = fullSrc;
+      }
     });
-    galleryPills.forEach((p, i) => {
-      p.classList.toggle('active', i === (activeImageIndex % galleryPills.length));
-    });
-    const selectedThumb = thumbnails[activeImageIndex];
-    if (selectedThumb && mainProductImg) {
-      const src = selectedThumb.getAttribute('data-src');
-      mainProductImg.style.opacity = '0.4';
-      setTimeout(() => {
-        mainProductImg.src = src;
-        mainProductImg.style.opacity = '1';
-      }, 150);
-    }
-  }
-
-  thumbnails.forEach((thumb, idx) => {
-    thumb.addEventListener('click', () => setActiveGalleryImage(idx));
   });
 
-  const galleryPrev = document.getElementById('gallery-prev');
-  const galleryNext = document.getElementById('gallery-next');
-  if (galleryPrev) galleryPrev.addEventListener('click', () => setActiveGalleryImage(activeImageIndex - 1));
-  if (galleryNext) galleryNext.addEventListener('click', () => setActiveGalleryImage(activeImageIndex + 1));
-
-  // 7. Accordion Toggle
+  // 7. Product Accordions
   const accordionHeaders = document.querySelectorAll('.accordion-header');
   accordionHeaders.forEach(header => {
     header.addEventListener('click', () => {
-      const item = header.parentElement;
+      const item = header.closest('.accordion-item');
       const body = item.querySelector('.accordion-body');
       const isExpanded = header.getAttribute('aria-expanded') === 'true';
 
@@ -1635,39 +4135,280 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Hero Carousel Loop with Accessible Pause
+  // 9. Real Interactive Hero Carousel Slider
+  const heroSlides = document.querySelectorAll('.hero-slide');
   const heroPills = document.querySelectorAll('.hero-pill');
   const heroPrev = document.getElementById('hero-prev-btn');
   const heroNext = document.getElementById('hero-next-btn');
-  const heroTapestryLayer = document.getElementById('hero-tapestry-layer');
   let currentHeroSlide = 0;
-  const totalHeroSlides = 3;
+  const totalHeroSlides = heroSlides.length || 3;
+  let heroTimer = null;
 
   function setHeroSlide(idx) {
     currentHeroSlide = (idx + totalHeroSlides) % totalHeroSlides;
+    heroSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === currentHeroSlide);
+    });
     heroPills.forEach((pill, i) => {
       pill.classList.toggle('active', i === currentHeroSlide);
     });
   }
 
-  if (heroPrev) heroPrev.addEventListener('click', () => setHeroSlide(currentHeroSlide - 1));
-  if (heroNext) heroNext.addEventListener('click', () => setHeroSlide(currentHeroSlide + 1));
+  function startHeroTimer() {
+    stopHeroTimer();
+    heroTimer = setInterval(() => {
+      setHeroSlide(currentHeroSlide + 1);
+    }, 4500);
+  }
+
+  function stopHeroTimer() {
+    if (heroTimer) clearInterval(heroTimer);
+  }
+
+  if (heroPrev) {
+    heroPrev.addEventListener('click', (e) => {
+      e.preventDefault();
+      setHeroSlide(currentHeroSlide - 1);
+      startHeroTimer();
+    });
+  }
+
+  if (heroNext) {
+    heroNext.addEventListener('click', (e) => {
+      e.preventDefault();
+      setHeroSlide(currentHeroSlide + 1);
+      startHeroTimer();
+    });
+  }
+
   heroPills.forEach((pill, idx) => {
-    pill.addEventListener('click', () => setHeroSlide(idx));
+    pill.addEventListener('click', (e) => {
+      e.preventDefault();
+      setHeroSlide(idx);
+      startHeroTimer();
+    });
   });
+
+  const heroSec = document.getElementById('hero-section');
+  if (heroSec) {
+    let touchStartX = 0;
+    heroSec.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      stopHeroTimer();
+    }, { passive: true });
+
+    heroSec.addEventListener('touchend', (e) => {
+      const diff = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(diff) > 35) {
+        if (diff < 0) setHeroSlide(currentHeroSlide + 1);
+        else setHeroSlide(currentHeroSlide - 1);
+      }
+      startHeroTimer();
+    }, { passive: true });
+
+    heroSec.addEventListener('mouseenter', stopHeroTimer);
+    heroSec.addEventListener('mouseleave', startHeroTimer);
+  }
+
+  if (heroSlides.length > 0) {
+    startHeroTimer();
+  }
+
+  // 10. Quick Add to Cart for Category & Related
+  const quickAddBtns = document.querySelectorAll('.card-quick-add-btn');
+  quickAddBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const title = btn.getAttribute('data-title') || 'Duvar Örtüsü';
+      const price = btn.getAttribute('data-price') || '₺1.490,00';
+
+      cartCount += 1;
+      updateCartUI();
+
+      const titleEl = document.querySelector('.cart-item-title');
+      const priceEl = document.querySelector('.cart-item-price');
+      if (titleEl) titleEl.textContent = title;
+      if (priceEl) priceEl.innerHTML = price + ' <span class="cart-item-old-price">₺1.990,00</span>';
+      if (cartTotalAmount) cartTotalAmount.textContent = price;
+
+      openCart();
+    });
+  });
+
+  // 11. Category Subcategory Pills Filter
+  const subcatPills = document.querySelectorAll('.subcat-pill');
+  const productCards = document.querySelectorAll('.product-grid-card');
+
+  subcatPills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      subcatPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+
+      const tag = pill.getAttribute('data-tag');
+      productCards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        if (tag === 'all' || cat === tag) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // 12. FAQ Accordion Toggle
+  const faqBtns = document.querySelectorAll('.faq-question-btn');
+  faqBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+
+      btn.setAttribute('aria-expanded', !isExpanded);
+      item.classList.toggle('active', !isExpanded);
+      if (answer) {
+        answer.style.display = isExpanded ? 'none' : 'block';
+      }
+    });
+  });
+
+  // 13. Wishlist Heart buttons in cards
+  const cardWishlists = document.querySelectorAll('.card-wishlist-btn');
+  cardWishlists.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      btn.classList.toggle('active');
+    });
+  });
+
+  // 14. Simplified Custom Atelier (Duvar Örtüsü & WhatsApp)
+  let atelierSize = '100 × 140 cm';
+  let atelierPrice = 1490;
+
+  const sizeChips = document.querySelectorAll('.atelier-sizes-grid--three .atelier-size-chip');
+  const previewDimBadge = document.getElementById('atelier-preview-dim-badge');
+  const labelSelectedSize = document.getElementById('label-selected-size');
+  const atelierTotalPrice = document.getElementById('atelier-total-price');
+  const atelierWaBtn = document.getElementById('atelier-wa-btn');
+  const atelierAddCartBtn = document.getElementById('atelier-add-cart-btn');
+
+  function updateAtelierSizeUI() {
+    if (previewDimBadge) previewDimBadge.textContent = atelierSize;
+    if (labelSelectedSize) labelSelectedSize.textContent = atelierSize;
+    if (atelierTotalPrice) atelierTotalPrice.textContent = '₺' + atelierPrice.toLocaleString('tr-TR') + ',00';
+
+    // Real-time Visual Size Scaling on the Wall
+    const tapestryWrap = document.querySelector('.mockup-tapestry-wrap');
+    if (tapestryWrap) {
+      tapestryWrap.classList.remove('size-70x100', 'size-100x140', 'size-140x200');
+      if (atelierSize.indexOf('70 × 100') !== -1) {
+        tapestryWrap.classList.add('size-70x100');
+      } else if (atelierSize.indexOf('140 × 200') !== -1) {
+        tapestryWrap.classList.add('size-140x200');
+      } else {
+        tapestryWrap.classList.add('size-100x140');
+      }
+    }
+
+    if (atelierWaBtn) {
+      const waText = encodeURIComponent(
+        'Merhaba Meril Home, kişiye özel duvar örtüsü yaptırmak istiyorum.\n• Seçtiğim Ölçü: ' + atelierSize + '\n• Özel Üretim Tutarı: ₺' + atelierPrice.toLocaleString('tr-TR') + ',00\nBaskı provası hazırlanması için görselimi iletiyorum.'
+      );
+      atelierWaBtn.href = 'https://wa.me/905555555555?text=' + waText;
+    }
+  }
+
+  sizeChips.forEach(chip => {
+    chip.addEventListener('click', () => {
+      sizeChips.forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+
+      atelierSize = chip.getAttribute('data-size') || '100 × 140 cm';
+      atelierPrice = parseInt(chip.getAttribute('data-price')) || 1490;
+      updateAtelierSizeUI();
+    });
+  });
+
+  if (atelierAddCartBtn) {
+    atelierAddCartBtn.addEventListener('click', () => {
+      cartCount += 1;
+      updateCartUI();
+
+      const titleEl = document.querySelector('.cart-item-title');
+      const varEl = document.querySelector('.cart-item-variant');
+      const priceEl = document.querySelector('.cart-item-price');
+
+      if (titleEl) titleEl.textContent = 'Kişiye Özel Duvar Örtüsü';
+      if (varEl) varEl.textContent = 'Ölçü: ' + atelierSize + ' (Ahşap Askı Dahil)';
+      if (priceEl) priceEl.innerHTML = '₺' + atelierPrice.toLocaleString('tr-TR') + ',00 <span class="cart-item-old-price">₺' + Math.round(atelierPrice * 1.3).toLocaleString('tr-TR') + ',00</span>';
+      if (cartTotalAmount) cartTotalAmount.textContent = '₺' + atelierPrice.toLocaleString('tr-TR') + ',00';
+
+      openCart();
+    });
+  }
+
+  updateAtelierSizeUI();
+
+
+  // 15. Horizontal Slide-Down Search Bar
+  const searchToggles = document.querySelectorAll('.search-toggle');
+  const searchDropdown = document.getElementById('header-search-dropdown');
+  const searchCloseBtn = document.getElementById('search-close-btn');
+  const searchInput = document.getElementById('header-search-input');
+
+  function openSearch() {
+    if (searchDropdown) {
+      searchDropdown.classList.add('active');
+      searchDropdown.setAttribute('aria-hidden', 'false');
+      if (searchInput) {
+        setTimeout(() => searchInput.focus(), 150);
+      }
+    }
+  }
+
+  function closeSearch() {
+    if (searchDropdown) {
+      searchDropdown.classList.remove('active');
+      searchDropdown.setAttribute('aria-hidden', 'true');
+    }
+  }
+
+  searchToggles.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (searchDropdown && searchDropdown.classList.contains('active')) {
+        closeSearch();
+      } else {
+        openSearch();
+      }
+    });
+  });
+
+  if (searchCloseBtn) {
+    searchCloseBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeSearch();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeSearch();
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && searchInput.value.trim()) {
+        window.location.href = '/collection.html?q=' + encodeURIComponent(searchInput.value.trim());
+      }
+    });
+  }
+
 });
 
-
-      // Toggle reference overlay
-      const toggleBtn = document.getElementById('btn-toggle-overlay');
-      const overlayImg = document.getElementById('ref-overlay');
-      if (toggleBtn && overlayImg) {
-        toggleBtn.addEventListener('click', () => {
-          const isHidden = overlayImg.style.display === 'none' || overlayImg.style.display === '';
-          overlayImg.style.display = isHidden ? 'block' : 'none';
-          toggleBtn.classList.toggle('active', isHidden);
-        });
-      }
     </script>
   </body>
 </html>
